@@ -88,34 +88,37 @@ const About = () => {
             </div>
             
             {/* Stacked Photos */}
-            <div className="relative h-[400px] md:h-[500px]">
-              <div className="w-72 h-72 md:w-96 md:h-96 bg-white/10 rounded-full absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 blur-3xl"></div>
-              
-              {/* Bottom photo */}
-              <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-64 md:w-80 h-72 md:h-96">
-                <img
-                  src={bottomStackImage}
-                  alt="Vision illustration 3"
-                  className="w-full h-full object-cover rounded-lg shadow-xl"
-                />
-              </div>
-              
-              {/* Middle photo */}
-              <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2 translate-x-12 w-64 md:w-80 h-72 md:h-96 rotate-6">
-                <img
-                  src={midStackImage}
-                  alt="Vision illustration 2"
-                  className="w-full h-full object-cover rounded-lg shadow-xl"
-                />
-              </div>
-              
-              {/* Top photo */}
-              <div className="absolute bottom-24 left-1/2 transform -translate-x-1/2 -translate-x-12 w-64 md:w-80 h-72 md:h-96 -rotate-6">
-                <img
-                  src={topStackImage}
-                  alt="Vision illustration 1"
-                  className="w-full h-full object-cover rounded-lg shadow-xl"
-                />
+            <div className="w-full flex justify-center">
+              <div className="relative h-[400px] md:h-[500px] w-full max-w-[320px] md:max-w-none">
+                {/* Background blur */}
+                <div className="w-64 h-64 md:w-96 md:h-96 bg-white/10 rounded-full absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 blur-3xl"></div>
+                
+                {/* Bottom photo */}
+                <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-48 md:w-80 h-64 md:h-96">
+                  <img
+                    src={bottomStackImage}
+                    alt="Vision illustration 3"
+                    className="w-full h-full object-cover rounded-lg shadow-xl"
+                  />
+                </div>
+                
+                {/* Middle photo */}
+                <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2 translate-x-4 md:translate-x-12 w-48 md:w-80 h-64 md:h-96 rotate-6">
+                  <img
+                    src={midStackImage}
+                    alt="Vision illustration 2"
+                    className="w-full h-full object-cover rounded-lg shadow-xl"
+                  />
+                </div>
+                
+                {/* Top photo */}
+                <div className="absolute bottom-24 left-1/2 transform -translate-x-1/2 -translate-x-4 md:-translate-x-12 w-48 md:w-80 h-64 md:h-96 -rotate-6">
+                  <img
+                    src={topStackImage}
+                    alt="Vision illustration 1"
+                    className="w-full h-full object-cover rounded-lg shadow-xl"
+                  />
+                </div>
               </div>
             </div>
           </div>
