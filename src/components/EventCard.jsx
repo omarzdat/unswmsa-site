@@ -7,10 +7,11 @@ const EventCard = ({
   details, 
   isFeatured = false,
   showSignUp = false,
-  imageHeight = 'h-48' // default height, can be overridden
+  imageHeight = 'h-48',
+  className = '' 
 }) => {
   return (
-    <div className={`bg-[#CD4631] rounded-lg overflow-hidden ${isFeatured ? 'h-full' : ''}`}>
+    <div className={`bg-[#CD4631] rounded-lg overflow-hidden ${isFeatured ? 'h-full' : ''} ${className}`}>
       <div className="relative">
         <img
           src={image || "/api/placeholder/400/300"}
