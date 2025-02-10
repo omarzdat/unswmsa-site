@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Github, Facebook, Instagram, Linkedin, Youtube, MessageSquare, Menu, X, NotepadText } from 'lucide-react';
-import msaLogoColor from '../assets/msa-logo-colour.png';
-import msaLogoWhite from '../assets/msa-logo-white.png';
+import msaLogoColor from '/assets/msa-logo-colour.png';
+import msaLogoWhite from '/assets/msa-logo-white.png';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);

@@ -11,13 +11,13 @@ import {
 import EventCard from '../components/EventCard';
 
 // Import all images
-import heroImage from '../assets/hero.JPG';
-import msaLogoWhite from '../assets/msa-logo-white.png';
-import hennaImage from '../assets/henna.jpg';
-import oWeekImage from '../assets/o-week.PNG';
-import meatGreetImage from '../assets/meat-greet.jpg';
-import brosGameNightImage from '../assets/bros-game-night.jpg';
-import swmImage from '../assets/swm.jpeg';
+import heroImage from '/assets/hero.jpg';
+import msaLogoWhite from '/assets/msa-logo-white.png';
+import hennaImage from '/assets/henna.jpg';
+import oWeekImage from '/assets/o-week.png';
+import meatGreetImage from '/assets/meat-greet.jpg';
+import brosGameNightImage from '/assets/bros-game-night.jpg';
+import swmImage from '/assets/swm.jpeg';
 
 const ServiceCard = ({ title, children, icon: Icon }) => (
   <div className="bg-white/10 rounded-lg p-3 md:p-6">

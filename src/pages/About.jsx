@@ -1,5 +1,10 @@
-// src/pages/About.jsx
 import React from 'react';
+
+// Import profile images
+import aboutHeroImage from '/assets/about-hero.jpg';
+import topStackImage from '/assets/vision-stack/top.jpg';
+import midStackImage from '/assets/vision-stack/mid.jpg';
+import bottomStackImage from '/assets/vision-stack/bottom.jpg';
 
 const TeamMember = ({ name, title, image }) => (
   <div className="flex flex-col items-center text-center">
@@ -17,20 +22,20 @@ const TeamMember = ({ name, title, image }) => (
 
 const About = () => {
   const teamMembers = [
-    { name: "Umar Khan", title: "President", image: "src/assets/profiles/umar.jpeg" },
-    { name: "Afra Kamal", title: "Vice President", image: "src/assets/profiles/afra.jpg" },
-    { name: "Eeman R Shah", title: "Secretary", image: "src/assets/profiles/eeman.jpg" },
-    { name: "Ayman Chowdhury", title: "Treasurer", image: "src/assets/profiles/ayman.jpg" },
-    { name: "Zakariya Ali Yoga", title: "Arc Delegate", image: "src/assets/profiles/zak.jpg" },
-    { name: "Ryan Khan", title: "Media and Content Lead", image: "src/assets/profiles/ryan.jpg" },
-    { name: "Nuzhat Anjum", title: "Media and Content Lead", image: "src/assets/profiles/nuzhat.jpg" },
-    { name: "Ayishah Ahmad", title: "Media and Content Lead", image: "src/assets/profiles/ayishah.jpg" },
-    { name: "AbdulRahman Tijani", title: "Brothers Dawah Lead", image: "src/assets/profiles/tijani.jpg" },
-    { name: "Hawra Al Shami", title: "Sisters Dawah Lead", image: "src/assets/profiles/hawra.jpg" },
-    { name: "Souad Khan", title: "Activism Lead (Accountability)", image: "src/assets/profiles/souad.jpg" },
-    { name: "Rama Emad", title: "Activism Lead (Education)", image: "src/assets/profiles/rama.jpg" },
-    { name: "Zaynab Alam", title: "Sisters Events Lead", image: "src/assets/profiles/zaynab.jpg" },
-    { name: "Saarang Ali", title: "Brothers Events Lead", image: "src/assets/profiles/saarang.png" },
+    { name: "Umar Khan", title: "President", image: "/assets/profiles/umar.jpeg" },
+    { name: "Afra Kamal", title: "Vice President", image: "/assets/profiles/afra.jpg" },
+    { name: "Eeman R Shah", title: "Secretary", image: "/assets/profiles/eeman.jpg" },
+    { name: "Ayman Chowdhury", title: "Treasurer", image: "/assets/profiles/ayman.jpg" },
+    { name: "Zakariya Ali Yoga", title: "Arc Delegate", image: "/assets/profiles/zak.jpg" },
+    { name: "Ryan Khan", title: "Media and Content Lead", image: "/assets/profiles/ryan.jpg" },
+    { name: "Nuzhat Anjum", title: "Media and Content Lead", image: "/assets/profiles/nuzhat.jpg" },
+    { name: "Ayishah Ahmad", title: "Media and Content Lead", image: "/assets/profiles/ayishah.jpg" },
+    { name: "AbdulRahman Tijani", title: "Brothers Dawah Lead", image: "/assets/profiles/tijani.jpg" },
+    { name: "Hawra Al Shami", title: "Sisters Dawah Lead", image: "/assets/profiles/hawra.jpg" },
+    { name: "Souad Khan", title: "Activism Lead (Accountability)", image: "/assets/profiles/souad.jpg" },
+    { name: "Rama Emad", title: "Activism Lead (Education)", image: "/assets/profiles/rama.jpg" },
+    { name: "Zaynab Alam", title: "Sisters Events Lead", image: "/assets/profiles/zaynab.jpg" },
+    { name: "Saarang Ali", title: "Brothers Events Lead", image: "/assets/profiles/saarang.png" },
   ];
 
   return (
@@ -39,7 +44,7 @@ const About = () => {
       <section className="min-h-screen md:h-screen md:snap-start relative pt-20 pb-16 md:py-0">
         <div className="absolute inset-0">
           <img
-            src="src/assets/about-hero.JPG"
+            src={aboutHeroImage}
             alt="Background"
             className="w-full h-full object-cover"
           />
@@ -87,7 +92,7 @@ const About = () => {
               {/* Bottom photo */}
               <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-64 md:w-80 h-72 md:h-96">
                 <img
-                  src="src/assets/vision-stack/bottom.JPG"
+                  src={bottomStackImage}
                   alt="Vision illustration 3"
                   className="w-full h-full object-cover rounded-lg shadow-xl"
                 />
@@ -96,7 +101,7 @@ const About = () => {
               {/* Middle photo */}
               <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2 translate-x-12 w-64 md:w-80 h-72 md:h-96 rotate-6">
                 <img
-                  src="src/assets/vision-stack/mid.JPG"
+                  src={midStackImage}
                   alt="Vision illustration 2"
                   className="w-full h-full object-cover rounded-lg shadow-xl"
                 />
@@ -105,7 +110,7 @@ const About = () => {
               {/* Top photo */}
               <div className="absolute bottom-24 left-1/2 transform -translate-x-1/2 -translate-x-12 w-64 md:w-80 h-72 md:h-96 -rotate-6">
                 <img
-                  src="src/assets/vision-stack/top.JPG"
+                  src={topStackImage}
                   alt="Vision illustration 1"
                   className="w-full h-full object-cover rounded-lg shadow-xl"
                 />

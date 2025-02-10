@@ -2,20 +2,20 @@ import React from 'react';
 import EventCard from '../components/EventCard';
 
 // Import upcoming event images
-import oWeekHeroImage from '../assets/o-week-hero.jpg';
-import meatGreetImage from '../assets/meat-greet.jpg';
-import brosGameNightImage from '../assets/bros-game-night.jpg';
-import swmImage from '../assets/swm.jpeg';
+import oWeekHeroImage from '/assets/o-week-hero.jpg';
+import meatGreetImage from '/assets/meat-greet.jpg';
+import brosGameNightImage from '/assets/bros-game-night.jpg';
+import swmImage from '/assets/swm.jpeg';
 
 // Import past event images
-import pastBbqImage from '../assets/past-events/past-bbq.jpg';
-import dawahWorkshopImage from '../assets/past-events/dawah-workshop.jpg';
-import rtrImage from '../assets/past-events/rtr.jpg';
-import grandIftarImage from '../assets/past-events/grand-iftar.jpg';
-import halaqaImage from '../assets/past-events/halaqa.jpg';
-import basketballImage from '../assets/past-events/basketball.png';
-import craftCoffeeImage from '../assets/past-events/craft-coffee.jpg';
-import iawImage from '../assets/past-events/iaw.jpg';
+import pastBbqImage from '/assets/past-events/past-bbq.jpg';
+import dawahWorkshopImage from '/assets/past-events/dawah-workshop.jpg';
+import rtrImage from '/assets/past-events/rtr.jpg';
+import grandIftarImage from '/assets/past-events/grand-iftar.jpg';
+import halaqaImage from '/assets/past-events/halaqa.jpg';
+import basketballImage from '/assets/past-events/basketball.png';
+import craftCoffeeImage from '/assets/past-events/craft-coffee.jpg';
+import iawImage from '/assets/past-events/iaw.jpg';
 
 const Events = () => {
   const upcomingEvents = [
