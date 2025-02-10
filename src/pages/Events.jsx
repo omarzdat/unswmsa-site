@@ -11,6 +11,9 @@ const Events = () => {
           <div className="grid grid-cols-2 gap-16 mt-12">
             <EventCard
               isFeatured
+              details="Event details Event details Event details Event details Event details Event details
+                      Event details Event details Event details Event details Event details Event details
+                      Event details Event details Event details"
             />
             <div className="flex flex-col justify-center">
               <h1 className="text-6xl mb-4">We'd love to<br />see you at<br /><span className="bg-[#CD4631] text-white px-2">insertevent</span></h1>

@@ -6,7 +6,8 @@ const EventCard = ({
   title, 
   details, 
   isFeatured = false,
-  showSignUp = false 
+  showSignUp = false,
+  imageHeight = 'h-48' // default height, can be overridden
 }) => {
   return (
     <div className={`bg-[#CD4631] rounded-lg overflow-hidden ${isFeatured ? 'h-full' : ''}`}>
@@ -14,7 +15,7 @@ const EventCard = ({
         <img
           src={image || "/api/placeholder/400/300"}
           alt={title}
-          className="w-full h-64 object-cover"
+          className={`w-full ${imageHeight} object-cover`}
         />
         <div className="absolute bottom-0 left-0 w-full p-4 bg-[#CD4631]">
           <h3 className="text-white text-xl">{title || "event name/promo"}</h3>
@@ -23,7 +24,7 @@ const EventCard = ({
       
       {(details || showSignUp) && (
         <div className="p-6 text-white">
-          {details && <p className="mb-4">{details}</p>}
+          {details && <p className="mb-4 line-clamp-3">{details}</p>}
           {showSignUp && (
             <button className="border-2 border-white px-8 py-2 hover:bg-white hover:text-[#CD4631] transition-colors">
               SIGN UP!
