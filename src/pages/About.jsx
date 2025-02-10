@@ -43,7 +43,7 @@ const About = () => {
             alt="Background"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-[#961a1e] opacity-50"></div>
+          <div className="absolute inset-0 bg-[#961a1e] opacity-80"></div>
         </div>
         
         <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-8 h-full flex items-center">
@@ -79,13 +79,37 @@ const About = () => {
                 their chosen fields.
               </p>
             </div>
-            <div className="relative">
+            
+            {/* Stacked Photos */}
+            <div className="relative h-[400px] md:h-[500px]">
               <div className="w-72 h-72 md:w-96 md:h-96 bg-white/10 rounded-full absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 blur-3xl"></div>
-              <img
-                src="src/assets/about-hero.JPG"
-                alt="Vision illustration"
-                className="relative z-10 w-full max-w-md mx-auto"
-              />
+              
+              {/* Bottom photo */}
+              <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-64 md:w-80 h-72 md:h-96">
+                <img
+                  src="src/assets/vision-stack/bottom.JPG"
+                  alt="Vision illustration 3"
+                  className="w-full h-full object-cover rounded-lg shadow-xl"
+                />
+              </div>
+              
+              {/* Middle photo */}
+              <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2 translate-x-12 w-64 md:w-80 h-72 md:h-96 rotate-6">
+                <img
+                  src="src/assets/vision-stack/mid.JPG"
+                  alt="Vision illustration 2"
+                  className="w-full h-full object-cover rounded-lg shadow-xl"
+                />
+              </div>
+              
+              {/* Top photo */}
+              <div className="absolute bottom-24 left-1/2 transform -translate-x-1/2 -translate-x-12 w-64 md:w-80 h-72 md:h-96 -rotate-6">
+                <img
+                  src="src/assets/vision-stack/top.JPG"
+                  alt="Vision illustration 1"
+                  className="w-full h-full object-cover rounded-lg shadow-xl"
+                />
+              </div>
             </div>
           </div>
         </div>

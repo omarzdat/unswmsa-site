@@ -16,21 +16,21 @@ const Events = () => {
       details: "Kick off Term 1 with a free BBQ and some good (maybe lifelong) company",
       image: "src/assets/meat-greet.JPG",
       showSignUp: true,
-      signUpLink: "#",
+      signUpLink: "https://www.instagram.com/p/DFulwwFSXAl/",
     },
     {
       title: "Brothers' Games Night",
       details: "Join us for an epic night of FIFA & Mario competitions, good vibes, and FREE pizza!",
       image: "src/assets/bros-game-night.JPG",
       showSignUp: true,
-      signUpLink: "#",
+      signUpLink: "https://lovely-catmint-be1.notion.site/192980a12cbf809c870cdb27a6ab73b5",
     },
     {
       title: "Sisters' High Tea",
       details: "A cozy afternoon filled with sisterhood, games, and endless laughter",
       image: "src/assets/swm.jpeg",
       showSignUp: true,
-      signUpLink: "#",
+      signUpLink: "https://lovely-catmint-be1.notion.site/192980a12cbf80a5aac1fc88189f2d05",
     }
   ];
 
@@ -79,6 +79,7 @@ const Events = () => {
               <EventCard
                 {...upcomingEvents[0]}
                 isFeatured
+                signUpLink='https://www.instagram.com/p/DFsGOh9yroE/?img_index=1'
               />
             </div>
             <div className="flex flex-col justify-center order-1 md:order-2">

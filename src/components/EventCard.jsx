@@ -55,7 +55,7 @@ const EventCard = ({
                 transition-colors
               "
             >
-              SIGN UP!
+              CHECK IT OUT!
             </a>
           )}
         </div>

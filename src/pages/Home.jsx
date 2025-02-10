@@ -36,9 +36,9 @@ const HomePage = () => {
 
         <div className="relative z-10 flex flex-col items-center justify-center min-h-screen px-4 pt-20 pb-16 md:py-0">
           <img 
-            src="src/assets/msa-logo.png" 
+            src="src/assets/msa-logo-white.png" 
             alt="logo"
-            className="w-48 md:w-96 mb-6" 
+            className="w-48 md:w-128 mb-6" 
           />
           <h1 className="text-4xl md:text-7xl mb-4 text-white font-light">UNSWMSA</h1>
           <p className="text-lg md:text-xl mb-8 text-white">FOR STUDENTS, BY STUDENTS</p>
@@ -71,7 +71,7 @@ const HomePage = () => {
                 excellent educational initiatives and spirital circles - and even enjoy student offers with our partners!
               </p>
               <button 
-                onClick={() => window.location.href = 'https://campus.hellorubric.com/?tab=memberships&s=6361'} 
+                onClick={() => window.open('https://campus.hellorubric.com/?tab=memberships&s=6361', '_blank')}
                 className="border-2 border-white text-white px-6 py-2 md:px-8 md:py-3 text-base md:text-lg hover:bg-white hover:text-black transition-color cursor-pointer"
               >
                 JOIN TODAY
@@ -188,8 +188,8 @@ const HomePage = () => {
                   <EventCard title="Sisters High Tea" image={"src/assets/swm.jpeg"} />
                 </div>
                 <button
-                  onClick={() => window.location.href = '/events#upcoming'}  // this doesnt work as intended
-                  className="w-full border-2 border-white px-8 py-3 text-lg hover:bg-white hover:text-[#F4A261] transition-colors mt-6"
+                  onClick={() => window.location.href = '/events'}  // this doesnt work as intended. i want this to link to the upcoming space
+                  className="w-full border-2 border-white px-8 py-3 text-lg hover:bg-white hover:text-[#961a1e] transition-colors mt-6"
                 >
                   Find out more
                 </button>

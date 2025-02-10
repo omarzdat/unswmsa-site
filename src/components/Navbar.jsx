@@ -1,7 +1,7 @@
 // src/components/Navbar.jsx
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Github, Facebook, Instagram, Linkedin, MessageSquare, Menu, X } from 'lucide-react';
+import { Github, Facebook, Instagram, Linkedin, Youtube, MessageSquare, Menu, X, NotepadText } from 'lucide-react';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -47,9 +47,11 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto flex justify-between items-center">
         {/* Left side - Logo */}
         <Link to="/" className={textColorClass}>
-          <svg viewBox="0 0 100 100" className="w-10 h-10 md:w-12 md:h-12">
-            <path d="M50 0 L60 40 L100 50 L60 60 L50 100 L40 60 L0 50 L40 40 Z" fill="currentColor"/>
-          </svg>
+          <img
+            src={location.pathname === '/events' ? "src/assets/msa-logo-colour.png" : "src/assets/msa-logo-white.png"}
+            alt="UNSWMSA Logo"
+            className="w-10 h-10 md:w-12 md:h-12 object-contain"
+          />
         </Link>
 
         {/* Desktop Navigation */}
@@ -68,11 +70,11 @@ const Navbar = () => {
 
           {/* Desktop Social Icons */}
           <div className="flex items-center space-x-4">
-            <SocialLink href="#" icon={Github} />
-            <SocialLink href="#" icon={Facebook} />
-            <SocialLink href="#" icon={Instagram} />
-            <SocialLink href="#" icon={Linkedin} />
-            <SocialLink href="#" icon={MessageSquare} />
+            <SocialLink href="https://www.facebook.com/UNSWMSA" icon={Facebook} />
+            <SocialLink href="https://www.instagram.com/unswmsa/" icon={Instagram} />
+            <SocialLink href="https://www.linkedin.com/company/unsw-muslim-students-association-unswmsa/?viewAsMember=true" icon={Linkedin} />
+            <SocialLink href="https://www.youtube.com/@theunswmsa" icon={Youtube}/>
+            <SocialLink href="https://unswmsa.substack.com/" icon={NotepadText} />
           </div>
         </div>
 

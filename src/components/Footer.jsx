@@ -1,7 +1,7 @@
 // src/components/Footer.jsx
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Github, Facebook, Instagram, Linkedin, MessageSquare } from 'lucide-react';
+import { Github, Facebook, Instagram, Linkedin, MessageSquare, Youtube, NotepadText } from 'lucide-react';
 
 const SocialLink = ({ href, icon: Icon }) => (
   <a 
@@ -30,20 +30,20 @@ const Footer = () => {
           {/* Column 1: Logo + Tagline + Social */}
           <div className="flex items-center gap-4">
             <img
-              src="/api/placeholder/120/48"
+              src="src/assets/msa-logo-colour.png"
               alt="UNSWMSA Logo"
-              className="w-24"
+              className="w-12"
             />
             <div>
               <p className="text-sm font-light mb-2">
                 For Students, By Students
               </p>
               <div className="flex gap-3">
-                <SocialLink href="#" icon={Github} />
-                <SocialLink href="#" icon={Facebook} />
-                <SocialLink href="#" icon={Instagram} />
-                <SocialLink href="#" icon={Linkedin} />
-                <SocialLink href="#" icon={MessageSquare} />
+              <SocialLink href="https://www.facebook.com/UNSWMSA" icon={Facebook} />
+              <SocialLink href="https://www.instagram.com/unswmsa/" icon={Instagram} />
+              <SocialLink href="https://www.linkedin.com/company/unsw-muslim-students-association-unswmsa/?viewAsMember=true" icon={Linkedin} />
+              <SocialLink href="https://www.youtube.com/@theunswmsa" icon={Youtube}/>
+              <SocialLink href="https://unswmsa.substack.com/" icon={NotepadText} />
               </div>
             </div>
           </div>
@@ -66,8 +66,8 @@ const Footer = () => {
           {/* Column 3: Contact Details */}
           <div className="flex items-center justify-end text-sm">
             <div className="space-x-6 flex">
-              <span>(123) 456-7890</span>
-              <span>hello@reallygreatsite.com</span>
+              <span>0470 100 936</span>
+              <span>unswmsa@gmail.com</span>
             </div>
           </div>
         </div>
@@ -83,7 +83,7 @@ const Footer = () => {
               alt="UNSWMSA Logo"
               className="w-16"
             />
-            <span className="text-xs">hello@reallygreatsite.com</span>
+            <span className="text-xs">unswmsa@gmail.com</span>
           </div>
           
           {/* Middle Row: Navigation */}
