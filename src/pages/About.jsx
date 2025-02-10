@@ -43,7 +43,7 @@ const About = () => {
             alt="Background"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-[#561C24] opacity-80"></div>
+          <div className="absolute inset-0 bg-[#961a1e] opacity-50"></div>
         </div>
         
         <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-8 h-full flex items-center">
@@ -62,7 +62,7 @@ const About = () => {
       </section>
 
       {/* Vision Section */}
-      <section className="min-h-screen md:h-screen md:snap-start relative py-16 md:py-0 bg-gradient-to-b from-[#561C24] to-[#CD4631]">
+      <section className="min-h-screen md:h-screen md:snap-start relative py-16 md:py-0 bg-gradient-to-b from-[#961a1e] to-[#ad3724]">
         <div className="max-w-7xl mx-auto px-4 md:px-8 h-full flex items-center">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24 items-center">
             <div>
@@ -92,7 +92,7 @@ const About = () => {
       </section>
 
       {/* Team Section */}
-      <section className="min-h-screen md:h-screen md:snap-start py-16 md:py-0 bg-[#CD4631]">
+      <section className="min-h-screen md:h-screen md:snap-start py-16 md:py-0 bg-[#ad3724]">
         <div className="max-w-7xl mx-auto px-4 md:px-8 h-full flex flex-col justify-center">
           <h2 className="text-3xl md:text-5xl text-white mb-8 md:mb-12">Meet Our Team</h2>
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-x-4 gap-y-8 md:gap-x-24 md:gap-y-10 max-w-7xl mx-auto">

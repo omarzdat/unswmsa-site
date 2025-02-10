@@ -14,7 +14,7 @@ const EventCard = ({
   return (
     <div 
       className={`
-        bg-[#CD4631] rounded-lg overflow-hidden 
+        bg-[#e76925] rounded-lg overflow-hidden 
         flex flex-col
         ${isFeatured ? 'h-full' : 'h-fit'}
         ${className}
@@ -26,7 +26,7 @@ const EventCard = ({
           alt={title}
           className={`w-full object-cover ${imageClassName}`}
         />
-        <div className="absolute bottom-0 left-0 w-full p-2 md:p-4 bg-[#CD4631]">
+        <div className="absolute bottom-0 left-0 w-full p-2 md:p-4 bg-[#e76925]">
           <h3 className="text-white text-sm sm:text-base md:text-xl">
             {title || "event name/promo"}
           </h3>
@@ -51,7 +51,7 @@ const EventCard = ({
                 px-3 md:px-8 py-1 md:py-2
                 text-xs md:text-base
                 text-white
-                hover:bg-white hover:text-[#CD4631] 
+                hover:bg-white hover:text-[#e76925] 
                 transition-colors
               "
             >

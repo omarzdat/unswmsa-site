@@ -5,7 +5,7 @@ import AccordionItem from '../components/Accordion';
 const GetInvolved = () => {
   return (
     <div className="h-screen md:snap-y md:snap-mandatory overflow-y-auto">
-      <section className="min-h-screen md:h-screen md:snap-start bg-[#561C24] pt-20 pb-16 md:py-0">
+      <section className="min-h-screen md:h-screen md:snap-start bg-[#ad3724] pt-20 pb-16 md:py-0">
         <div className="max-w-7xl mx-auto px-4 md:px-8 h-full flex items-center">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 w-full">
             {/* Left side content */}
@@ -52,7 +52,7 @@ const GetInvolved = () => {
             {/* Right side - Logo */}
             <div className="flex items-center justify-center order-1 md:order-2 mb-8 md:mb-0">
               <img
-                src="/api/placeholder/600/600"
+                src="src/assets/msa-logo.png"
                 alt="UNSWMSA 3D Logo"
                 className="w-48 md:w-full md:max-w-md h-auto"
               />

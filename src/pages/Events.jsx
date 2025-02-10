@@ -85,7 +85,7 @@ const Events = () => {
               <h1 className="text-3xl md:text-6xl mb-4">
                 We'd love to see you at
                 <br />
-                <span className="bg-[#CD4631] text-white px-2 mt-2 inline-block">O-Week 2025</span>
+                <span className="bg-[#e76925] text-white px-2 mt-2 inline-block">O-Week 2025</span>
               </h1>
               <p className="text-base md:text-lg mb-8">
                 Come join the brotherhood & sisterhood, join amazing volunteering teams, and walk away with some awesome freebies! 
