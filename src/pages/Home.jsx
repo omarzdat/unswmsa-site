@@ -9,6 +9,7 @@ import {
   MessageCircle
 } from 'lucide-react';
 import EventCard from '../components/EventCard';
+import MobileFooter from '../components/MobileFooter';
 
 // Import all images
 import heroImage from '/assets/hero.jpg';
@@ -210,6 +211,8 @@ const HomePage = () => {
           </div>
         </div>
       </section>
+
+      <MobileFooter />
     </div>
   );
 };

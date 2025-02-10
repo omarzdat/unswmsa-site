@@ -1,5 +1,6 @@
 import React from 'react';
 import EventCard from '../components/EventCard';
+import MobileFooter from '../components/MobileFooter';
 
 // Import upcoming event images
 import oWeekHeroImage from '/assets/o-week-hero.jpg';
@@ -142,6 +143,8 @@ const Events = () => {
           </div>
         </div>
       </section>
+
+      <MobileFooter />
     </div>
   );
 };

@@ -1,6 +1,7 @@
 import React from 'react';
 import AccordionItem from '../components/Accordion';
 import msaLogo from '/assets/msa-logo-white.png';
+import MobileFooter from '../components/MobileFooter';
 
 const GetInvolved = () => {
   return (
@@ -75,6 +76,8 @@ const GetInvolved = () => {
           </div>
         </div>
       </section>
+
+      <MobileFooter />
     </div>
   );
 };

@@ -1,4 +1,5 @@
 import React from 'react';
+import MobileFooter from '../components/MobileFooter';
 
 // Import profile images
 import aboutHeroImage from '/assets/about-hero.jpg';
@@ -41,7 +42,8 @@ const About = () => {
   return (
     <div className="h-screen md:snap-y md:snap-mandatory overflow-y-auto">
       {/* Who is UNSWMSA Section */}
-      <section className="min-h-screen md:h-screen md:snap-start relative pt-20 pb-16 md:py-0">
+      {/* Who is UNSWMSA Section */}
+      <section className="min-h-screen md:h-screen md:snap-start relative flex items-center md:block pt-20 pb-16 md:py-0">
         <div className="absolute inset-0">
           <img
             src={aboutHeroImage}
@@ -51,7 +53,7 @@ const About = () => {
           <div className="absolute inset-0 bg-[#961a1e] opacity-80"></div>
         </div>
         
-        <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-8 h-full flex items-center">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-8 h-full md:flex md:items-center">
           <div className="max-w-4xl">
             <h1 className="text-4xl md:text-7xl text-white mb-8 md:mb-12">
               Who are UNSWMSA?
@@ -136,6 +138,8 @@ const About = () => {
           </div>
         </div>
       </section>
+
+      <MobileFooter />
     </div>
   );
 };

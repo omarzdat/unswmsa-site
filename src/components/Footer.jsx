@@ -23,89 +23,54 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="fixed bottom-0 left-0 right-0 bg-white text-black z-50">
-      {/* Desktop Footer */}
-      <div className="hidden md:block">
-        <div className="max-w-7xl mx-auto px-8 py-4 grid grid-cols-3 gap-8">
-          {/* Column 1: Logo + Tagline + Social */}
-          <div className="flex items-center gap-4">
-            <img
-              src={msaLogoColor}
-              alt="UNSWMSA Logo"
-              className="w-12"
-            />
-            <div>
-              <p className="text-sm font-light mb-2">
-                For Students, By Students
-              </p>
-              <div className="flex gap-3">
+    // Added hidden for all mobile screens
+    <footer className="hidden md:block fixed bottom-0 left-0 right-0 bg-white text-black z-50">
+      <div className="max-w-7xl mx-auto px-8 py-4 grid grid-cols-3 gap-8">
+        {/* Column 1: Logo + Tagline + Social */}
+        <div className="flex items-center gap-4">
+          <img
+            src={msaLogoColor}
+            alt="UNSWMSA Logo"
+            className="w-12"
+          />
+          <div>
+            <p className="text-sm font-light mb-2">
+              For Students, By Students
+            </p>
+            <div className="flex gap-3">
               <SocialLink href="https://www.facebook.com/UNSWMSA" icon={Facebook} />
               <SocialLink href="https://www.instagram.com/unswmsa/" icon={Instagram} />
               <SocialLink href="https://www.linkedin.com/company/unsw-muslim-students-association-unswmsa/?viewAsMember=true" icon={Linkedin} />
               <SocialLink href="https://www.youtube.com/@theunswmsa" icon={Youtube}/>
               <SocialLink href="https://unswmsa.substack.com/" icon={NotepadText} />
-              </div>
-            </div>
-          </div>
-
-          {/* Column 2: Quick Links */}
-          <div className="flex items-center">
-            <nav className="flex gap-6">
-              {quickLinks.map((link) => (
-                <Link
-                  key={link.path}
-                  to={link.path}
-                  className="text-sm hover:text-[#CD4631] transition-colors"
-                >
-                  {link.name}
-                </Link>
-              ))}
-            </nav>
-          </div>
-
-          {/* Column 3: Contact Details */}
-          <div className="flex items-center justify-end text-sm">
-            <div className="space-x-6 flex">
-              <span>0470 100 936</span>
-              <span>unswmsa@gmail.com</span>
             </div>
           </div>
         </div>
-      </div>
 
-      {/* Mobile Footer */}
-      <div className="md:hidden px-4 py-3">
-        <div className="flex flex-col space-y-3">
-          {/* Top Row: Logo and Contact */}
-          <div className="flex justify-between items-center">
-            <img
-              src={msaLogoColor}
-              alt="UNSWMSA Logo"
-              className="w-12"
-            />
-            <span className="text-xs">unswmsa@gmail.com</span>
-          </div>
-          
-          {/* Middle Row: Navigation */}
-          <div className="flex justify-between text-xs">
+        {/* Column 2: Quick Links */}
+        <div className="flex items-center">
+          <nav className="flex gap-6">
             {quickLinks.map((link) => (
               <Link
                 key={link.path}
                 to={link.path}
-                className="hover:text-[#CD4631] transition-colors"
+                className="text-sm hover:text-[#CD4631] transition-colors"
               >
                 {link.name}
               </Link>
             ))}
-          </div>
+          </nav>
+        </div>
 
-          {/* Bottom Row: Social Icons */}
-          <div className="flex justify-center gap-4">
-            <SocialLink href="#" icon={Github} />
-            <SocialLink href="#" icon={Facebook} />
-            <SocialLink href="#" icon={Instagram} />
-            <SocialLink href="#" icon={Linkedin} />
-            <SocialLink href="#" icon={MessageSquare} />
+        {/* Column 3: Contact Details */}
+        <div className="flex items-center justify-end text-sm">
+          <div className="space-x-6 flex">
+            <span>0470 100 936</span>
+            <span>
+              <a href="mailto:unswmsa@gmail.com"className='hover:text-[#CD4631] transition-colors'>
+                unswmsa@gmail.com
+              </a>
+            </span>
           </div>
         </div>
       </div>
