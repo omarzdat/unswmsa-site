@@ -1,74 +1,89 @@
 // src/pages/About.jsx
 import React from 'react';
 
-const SpeechBubble = ({ text, className = "", large = false }) => (
-  <div className={`rounded-[30px] p-8 ${large ? 'max-w-2xl' : ''} ${className}`}>
-    <p className={`${large ? 'text-2xl leading-relaxed' : 'text-xl'} font-light`}>{text}</p>
-  </div>
-);
-
-const TeamMember = () => (
-  <div className="w-24 h-24 rounded-full bg-gray-200 flex items-center justify-center">
-    <img
-      src="/api/placeholder/96/96"
-      alt="Team member"
-      className="w-full h-full rounded-full object-cover"
-    />
+const TeamMember = ({ name, title, image }) => (
+  <div className="flex flex-col items-center text-center">
+    <div className="w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden mb-3 bg-white/10">
+      <img
+        src={image || "/api/placeholder/160/160"}
+        alt={name}
+        className="w-full h-full object-cover"
+      />
+    </div>
+    <h3 className="text-base md:text-lg font-semibold mb-0.5">{name}</h3>
+    <p className="text-xs md:text-sm text-white/80">{title}</p>
   </div>
 );
 
 const About = () => {
+  const teamMembers = [
+    { name: "Jane Doe", title: "President" },
+    { name: "John Smith", title: "Vice President" },
+    { name: "Sarah Johnson", title: "Secretary" },
+    { name: "Mike Brown", title: "Treasurer" },
+    { name: "Anna Lee", title: "Events Coordinator" },
+    { name: "David Chen", title: "Marketing Director" },
+    { name: "Maria Garcia", title: "Community Outreach" },
+    { name: "James Wilson", title: "Sports Coordinator" },
+    { name: "Emily Taylor", title: "Education Officer" },
+    { name: "Hassan Ahmed", title: "Prayer Room Coordinator" },
+    { name: "Fatima Ali", title: "Sisters Representative" },
+    { name: "Omar Khan", title: "Brothers Representative" },
+    { name: "Zainab Shah", title: "First Year Representative" },
+  ];
+
   return (
-    <div className="snap-y snap-mandatory h-screen overflow-y-scroll">
+    <div className="h-screen md:snap-y md:snap-mandatory overflow-y-auto">
       {/* Who is UNSWMSA Section */}
-      <section className="snap-start h-screen relative pt-24">
+      <section className="min-h-screen md:h-screen md:snap-start relative pt-20 pb-16 md:py-0">
         <div className="absolute inset-0">
           <img
-            src="/api/placeholder/1920/1080"
-            alt="Soccer background"
-            className="w-full h-full object-cover brightness-75"
+            src="src/assets/hero.JPG"
+            alt="Background"
+            className="w-full h-full object-cover"
           />
+          <div className="absolute inset-0 bg-[#561C24] opacity-80"></div>
         </div>
         
-        <div className="relative z-10 max-w-7xl mx-auto px-8 pt-16">
-          <div className="flex flex-col gap-8">
-            <SpeechBubble 
-              text="So who is UNSWMSA?"
-              className="bg-[#F4A261] text-white w-fit"
-            />
-            <SpeechBubble 
-              text="blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah"
-              className="bg-[#F4A261] text-white w-fit max-w-xl ml-12"
-              large
-            />
+        <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-8 h-full flex items-center">
+          <div className="max-w-4xl">
+            <h1 className="text-4xl md:text-7xl text-white mb-8 md:mb-12">
+              Who are UNSWMSA?
+            </h1>
+            <p className="text-lg md:text-2xl text-white/90 leading-relaxed">
+              The UNSW Muslim Students' Association (UNSWMSA) is a vibrant community 
+              of Muslim students dedicated to fostering spiritual growth, academic excellence, 
+              and social connection. Founded on the principles of unity and support, we serve 
+              as a bridge between Muslim students and the broader university community.
+            </p>
           </div>
         </div>
       </section>
 
       {/* Vision Section */}
-      <section className="snap-start h-screen relative">
-        <div className="absolute inset-0">
-          <img
-            src="/api/placeholder/1920/1080"
-            alt="Mosque background"
-            className="w-full h-full object-cover brightness-75"
-          />
-        </div>
-        
-        <div className="relative z-10 max-w-7xl mx-auto px-8 h-full">
-          <div className="grid grid-cols-2 gap-16 h-full items-center">
-            <SpeechBubble 
-              text="Sure!"
-              className="bg-[#CD4631] text-white w-fit"
-            />
-            <div className="space-y-6">
-              <SpeechBubble 
-                text="Would you like to hear about our vision?"
-                className="bg-[#CD4631] text-white"
-              />
-              <SpeechBubble 
-                text="blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah"
-                className="bg-[#CD4631] text-white"
+      <section className="min-h-screen md:h-screen md:snap-start relative py-16 md:py-0 bg-gradient-to-b from-[#561C24] to-[#CD4631]">
+        <div className="max-w-7xl mx-auto px-4 md:px-8 h-full flex items-center">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24 items-center">
+            <div>
+              <h2 className="text-3xl md:text-5xl text-white mb-6 md:mb-8">Our Vision</h2>
+              <p className="text-lg md:text-xl text-white/90 leading-relaxed mb-6">
+                We envision a university environment where Muslim students can thrive 
+                academically, spiritually, and socially. Our mission is to create an 
+                inclusive space that celebrates our faith while building bridges with 
+                the broader community.
+              </p>
+              <p className="text-lg md:text-xl text-white/90 leading-relaxed">
+                Through education, community service, and social activities, we aim to 
+                nurture future leaders who embody Islamic values while excelling in 
+                their chosen fields.
+              </p>
+            </div>
+            <div className="relative">
+              <div className="w-72 h-72 md:w-96 md:h-96 bg-white/10 rounded-full absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 blur-3xl"></div>
+              <img
+                src="/api/placeholder/600/600"
+                alt="Vision illustration"
+                className="relative z-10 w-full max-w-md mx-auto"
               />
             </div>
           </div>
@@ -76,32 +91,18 @@ const About = () => {
       </section>
 
       {/* Team Section */}
-      <section className="snap-start h-screen relative">
-        <div className="absolute inset-0">
-          <img
-            src="/api/placeholder/1920/1080"
-            alt="Islamic pattern background"
-            className="w-full h-full object-cover brightness-50"
-          />
-        </div>
-        
-        <div className="relative z-10 max-w-7xl mx-auto px-8 py-24">
-          <SpeechBubble 
-            text="And who runs all this?"
-            className="bg-[#CD4631] text-white w-fit mb-8"
-          />
-          
-          <SpeechBubble 
-            text="Glad you asked! Here is our executive team for the year:"
-            className="bg-[#CD4631] text-white mb-8"
-            large
-          >
-            <div className="grid grid-cols-6 gap-6 mt-8">
-              {[...Array(12)].map((_, i) => (
-                <TeamMember key={i} />
-              ))}
-            </div>
-          </SpeechBubble>
+      <section className="min-h-screen md:h-screen md:snap-start py-16 md:py-0 bg-[#CD4631]">
+        <div className="max-w-7xl mx-auto px-4 md:px-8 h-full flex flex-col justify-center">
+          <h2 className="text-3xl md:text-5xl text-white mb-8 md:mb-12">Meet Our Team</h2>
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-x-4 gap-y-8 md:gap-x-24 md:gap-y-10 max-w-7xl mx-auto">
+            {teamMembers.map((member, index) => (
+              <TeamMember
+                key={index}
+                name={member.name}
+                title={member.title}
+              />
+            ))}
+          </div>
         </div>
       </section>
     </div>

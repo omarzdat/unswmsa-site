@@ -18,7 +18,7 @@ const Navbar = () => {
       case '/':
         return 'text-white'; // Home page
       case '/about':
-        return 'text-black'; // About page
+        return 'text-white'; // About page
       case '/events':
         return 'text-black'; // Events page
       case '/get-involved':
