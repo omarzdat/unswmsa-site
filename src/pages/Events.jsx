@@ -1,34 +1,49 @@
-// src/pages/Events.jsx
 import React from 'react';
 import EventCard from '../components/EventCard';
+
+// Import upcoming event images
+import oWeekHeroImage from '../assets/o-week-hero.jpg';
+import meatGreetImage from '../assets/meat-greet.jpg';
+import brosGameNightImage from '../assets/bros-game-night.jpg';
+import swmImage from '../assets/swm.jpeg';
+
+// Import past event images
+import pastBbqImage from '../assets/past-events/past-bbq.jpg';
+import dawahWorkshopImage from '../assets/past-events/dawah-workshop.jpg';
+import rtrImage from '../assets/past-events/rtr.jpg';
+import grandIftarImage from '../assets/past-events/grand-iftar.jpg';
+import halaqaImage from '../assets/past-events/halaqa.jpg';
+import basketballImage from '../assets/past-events/basketball.png';
+import craftCoffeeImage from '../assets/past-events/craft-coffee.jpg';
+import iawImage from '../assets/past-events/iaw.jpg';
 
 const Events = () => {
   const upcomingEvents = [
     {
       title: "O-Week 2025",
       details: "Catch us on Feb 10-13, in the corridor between Int. Square & Quadrangle anytime from 10am - 4pm",
-      image: "src/assets/o-week-hero.JPG",
+      image: oWeekHeroImage,
       showSignUp: true,
       signUpLink: "#",
     },
     {
       title: "Meat and Greet BBQ",
       details: "Kick off Term 1 with a free BBQ and some good (maybe lifelong) company",
-      image: "src/assets/meat-greet.JPG",
+      image: meatGreetImage,
       showSignUp: true,
       signUpLink: "https://www.instagram.com/p/DFulwwFSXAl/",
     },
     {
       title: "Brothers' Games Night",
       details: "Join us for an epic night of FIFA & Mario competitions, good vibes, and FREE pizza!",
-      image: "src/assets/bros-game-night.JPG",
+      image: brosGameNightImage,
       showSignUp: true,
       signUpLink: "https://lovely-catmint-be1.notion.site/192980a12cbf809c870cdb27a6ab73b5",
     },
     {
       title: "Sisters' High Tea",
       details: "A cozy afternoon filled with sisterhood, games, and endless laughter",
-      image: "src/assets/swm.jpeg",
+      image: swmImage,
       showSignUp: true,
       signUpLink: "https://lovely-catmint-be1.notion.site/192980a12cbf80a5aac1fc88189f2d05",
     }
@@ -37,35 +52,35 @@ const Events = () => {
   const pastEvents = [
     {
       title: "Meat and Great '24",
-      image: "src/assets/past-events/past-bbq.jpg"
+      image: pastBbqImage
     },
     {
       title: "Starting Dawah: A Workshop",
-      image: "src/assets/past-events/dawah-workshop.jpg"
+      image: dawahWorkshopImage
     },
     {
       title: "Road To Ramadan",
-      image: "src/assets/past-events/rtr.jpg"
+      image: rtrImage
     },
     {
       title: "The Grand Iftar",
-      image: "src/assets/past-events/grand-iftar.jpg"
+      image: grandIftarImage
     },
     {
       title: "Weekly Halaqa",
-      image: "src/assets/past-events/halaqa.jpg"
+      image: halaqaImage
     },
     {
       title: "Brothers Basketball Tournament",
-      image: "src/assets/past-events/basketball.png"
+      image: basketballImage
     },
     {
       title: "Sisters Craft and Coffee",
-      image: "src/assets/past-events/craft-coffee.jpg"
+      image: craftCoffeeImage
     },
     {
       title: "Islamic Awareness Week",
-      image: "src/assets/past-events/iaw.jpg"
+      image: iawImage
     }
   ];
 
@@ -90,13 +105,9 @@ const Events = () => {
               </h1>
               <p className="text-base md:text-lg mb-8">
                 Come join the brotherhood & sisterhood, join amazing volunteering teams, and walk away with some awesome freebies! 
-                We’re beyond excited to kick off this year with you, so don’t miss out on the fun!
-                Let’s make memories and build a community that’s strong in faith and action! 
+                We're beyond excited to kick off this year with you, so don't miss out on the fun!
+                Let's make memories and build a community that's strong in faith and action! 
               </p>
-              {/* <button className="border-2 border-[#CD4631] text-[#CD4631] px-6 py-2 md:px-8 md:py-3 w-full md:w-fit 
-                              hover:bg-[#CD4631] hover:text-white transition-colors">
-                SIGN UP!
-              </button> */}
             </div>
           </div>
         </div>
@@ -126,7 +137,6 @@ const Events = () => {
               <EventCard
                 key={`past-${i}`}
                 {...event}
-                // className="opacity-75 grayscale"
               />
             ))}
           </div>

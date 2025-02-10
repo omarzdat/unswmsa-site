@@ -1,7 +1,7 @@
-// src/components/Footer.jsx
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Github, Facebook, Instagram, Linkedin, MessageSquare, Youtube, NotepadText } from 'lucide-react';
+import msaLogoColor from '../assets/msa-logo-colour.png';
 
 const SocialLink = ({ href, icon: Icon }) => (
   <a 
@@ -30,7 +30,7 @@ const Footer = () => {
           {/* Column 1: Logo + Tagline + Social */}
           <div className="flex items-center gap-4">
             <img
-              src="src/assets/msa-logo-colour.png"
+              src={msaLogoColor}
               alt="UNSWMSA Logo"
               className="w-12"
             />
@@ -79,9 +79,9 @@ const Footer = () => {
           {/* Top Row: Logo and Contact */}
           <div className="flex justify-between items-center">
             <img
-              src="/api/placeholder/80/32"
+              src={msaLogoColor}
               alt="UNSWMSA Logo"
-              className="w-16"
+              className="w-12"
             />
             <span className="text-xs">unswmsa@gmail.com</span>
           </div>

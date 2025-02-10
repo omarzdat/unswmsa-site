@@ -1,7 +1,8 @@
-// src/components/Navbar.jsx
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Github, Facebook, Instagram, Linkedin, Youtube, MessageSquare, Menu, X, NotepadText } from 'lucide-react';
+import msaLogoColor from '../assets/msa-logo-colour.png';
+import msaLogoWhite from '../assets/msa-logo-white.png';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -48,7 +49,7 @@ const Navbar = () => {
         {/* Left side - Logo */}
         <Link to="/" className={textColorClass}>
           <img
-            src={location.pathname === '/events' ? "src/assets/msa-logo-colour.png" : "src/assets/msa-logo-white.png"}
+            src={location.pathname === '/events' ? msaLogoColor : msaLogoWhite}
             alt="UNSWMSA Logo"
             className="w-10 h-10 md:w-12 md:h-12 object-contain"
           />

@@ -10,6 +10,15 @@ import {
 } from 'lucide-react';
 import EventCard from '../components/EventCard';
 
+// Import all images
+import heroImage from '../assets/hero.JPG';
+import msaLogoWhite from '../assets/msa-logo-white.png';
+import hennaImage from '../assets/henna.jpg';
+import oWeekImage from '../assets/o-week.PNG';
+import meatGreetImage from '../assets/meat-greet.jpg';
+import brosGameNightImage from '../assets/bros-game-night.jpg';
+import swmImage from '../assets/swm.jpeg';
+
 const ServiceCard = ({ title, children, icon: Icon }) => (
   <div className="bg-white/10 rounded-lg p-3 md:p-6">
     <div className="flex items-center gap-3 mb-2">
@@ -22,13 +31,12 @@ const ServiceCard = ({ title, children, icon: Icon }) => (
 
 const HomePage = () => {
   return (
-    // Container that enables/disables snap based on screen size
     <div className="h-screen md:snap-y md:snap-mandatory overflow-y-auto">
       {/* Hero Section */}
       <section className="min-h-screen md:h-screen md:snap-start relative bg-black">
         <div className="absolute inset-0">
           <img
-            src="src/assets/hero.JPG"
+            src={heroImage}
             alt="Soccer players"
             className="w-full h-full object-cover opacity-60"
           />
@@ -36,7 +44,7 @@ const HomePage = () => {
 
         <div className="relative z-10 flex flex-col items-center justify-center min-h-screen px-4 pt-20 pb-16 md:py-0">
           <img 
-            src="src/assets/msa-logo-white.png" 
+            src={msaLogoWhite}
             alt="logo"
             className="w-48 md:w-128 mb-6" 
           />
@@ -52,7 +60,7 @@ const HomePage = () => {
             <div className="relative order-2 md:order-1">
               <div className="relative w-full aspect-[4/5] rounded-t-[200px] md:rounded-t-[400px] overflow-hidden">
                 <img
-                  src="src/assets/henna.jpg"
+                  src={hennaImage}
                   alt="Middle Eastern food spread"
                   className="w-full h-full object-cover"
                 />
@@ -83,6 +91,7 @@ const HomePage = () => {
 
       {/* Services Section */}
       <section className="min-h-screen md:h-screen md:snap-start bg-[#ad3724] text-white py-16 md:py-0">
+        {/* Services content remains the same */}
         <div className="max-w-6xl mx-auto h-full px-4 md:px-16 flex flex-col justify-center">
           <h2 className="text-2xl md:text-5xl font-light mb-2">UNSWMSA Services</h2>
           <p className="text-base md:text-xl font-light leading-relaxed mb-8">
@@ -149,17 +158,20 @@ const HomePage = () => {
                 details="Come down to the corridor between Int Square and the Quadrangle anytime from 10-4 any day Feb 10-13!"
                 showSignUp
                 imageClassName="aspect-[16/9]"
+                image={oWeekImage}
               />
               
               <div>
                 <h3 className="text-xl font-semibold mb-4">Upcoming</h3>
                 <div className="grid grid-cols-1 gap-4">
                   <EventCard 
-                    title="Event 1"
+                    title="Meet and Great BBQ"
+                    image={meatGreetImage}
                     imageClassName="aspect-[3/2]"
                   />
                   <EventCard 
-                    title="Event 2"
+                    title="Brothers Games Night"
+                    image={brosGameNightImage}
                     imageClassName="aspect-[3/2]"
                   />
                 </div>
@@ -173,7 +185,7 @@ const HomePage = () => {
             {/* Desktop Layout */}
             <div className="hidden md:grid md:grid-cols-2 gap-8">
               <EventCard
-                image={"src/assets/o-week.PNG"}
+                image={oWeekImage}
                 title="UNSWMSA goes O-Week!"
                 details="Come down to the corridor between Int Square and the Quadrangle anytime from 10-4 any day Feb 10-13!"
                 showSignUp
@@ -183,12 +195,12 @@ const HomePage = () => {
               <div className="flex flex-col">
                 <h3 className="text-3xl font-light mb-5">Upcoming</h3>
                 <div className="grid grid-cols-2 gap-4 flex-grow">
-                  <EventCard title="Meet and Great BBQ" image={"src/assets/meat-greet.JPG"} />
-                  <EventCard title="Brothers Games Night" image={"src/assets/bros-game-night.JPG"} />
-                  <EventCard title="Sisters High Tea" image={"src/assets/swm.jpeg"} />
+                  <EventCard title="Meet and Great BBQ" image={meatGreetImage} />
+                  <EventCard title="Brothers Games Night" image={brosGameNightImage} />
+                  <EventCard title="Sisters High Tea" image={swmImage} />
                 </div>
                 <button
-                  onClick={() => window.location.href = '/events'}  // this doesnt work as intended. i want this to link to the upcoming space
+                  onClick={() => window.location.href = '/events'}
                   className="w-full border-2 border-white px-8 py-3 text-lg hover:bg-white hover:text-[#961a1e] transition-colors mt-6"
                 >
                   Find out more
