@@ -10,26 +10,27 @@ const TeamMember = ({ name, title, image }) => (
         className="w-full h-full object-cover"
       />
     </div>
-    <h3 className="text-base md:text-lg font-semibold mb-0.5">{name}</h3>
+    <h3 className="text-base md:text-lg font-light text-white mb-0.5">{name}</h3>
     <p className="text-xs md:text-sm text-white/80">{title}</p>
   </div>
 );
 
 const About = () => {
   const teamMembers = [
-    { name: "Jane Doe", title: "President" },
-    { name: "John Smith", title: "Vice President" },
-    { name: "Sarah Johnson", title: "Secretary" },
-    { name: "Mike Brown", title: "Treasurer" },
-    { name: "Anna Lee", title: "Events Coordinator" },
-    { name: "David Chen", title: "Marketing Director" },
-    { name: "Maria Garcia", title: "Community Outreach" },
-    { name: "James Wilson", title: "Sports Coordinator" },
-    { name: "Emily Taylor", title: "Education Officer" },
-    { name: "Hassan Ahmed", title: "Prayer Room Coordinator" },
-    { name: "Fatima Ali", title: "Sisters Representative" },
-    { name: "Omar Khan", title: "Brothers Representative" },
-    { name: "Zainab Shah", title: "First Year Representative" },
+    { name: "Umar Khan", title: "President", image: "src/assets/profiles/umar.jpeg" },
+    { name: "Afra Kamal", title: "Vice President", image: "src/assets/profiles/afra.jpg" },
+    { name: "Eeman R Shah", title: "Secretary", image: "src/assets/profiles/eeman.jpg" },
+    { name: "Ayman Chowdhury", title: "Treasurer", image: "src/assets/profiles/ayman.jpg" },
+    { name: "Zakariya Ali Yoga", title: "Arc Delegate", image: "src/assets/profiles/zak.jpg" },
+    { name: "Ryan Khan", title: "Media and Content Lead", image: "src/assets/profiles/ryan.jpg" },
+    { name: "Nuzhat Anjum", title: "Media and Content Lead", image: "src/assets/profiles/nuzhat.jpg" },
+    { name: "Ayishah Ahmad", title: "Media and Content Lead", image: "src/assets/profiles/ayishah.jpg" },
+    { name: "AbdulRahman Tijani", title: "Brothers Dawah Lead", image: "src/assets/profiles/tijani.jpg" },
+    { name: "Hawra Al Shami", title: "Sisters Dawah Lead", image: "src/assets/profiles/hawra.jpg" },
+    { name: "Souad Khan", title: "Activism Lead (Accountability)", image: "src/assets/profiles/souad.jpg" },
+    { name: "Rama Emad", title: "Activism Lead (Education)", image: "src/assets/profiles/rama.jpg" },
+    { name: "Zaynab Alam", title: "Sisters Events Lead", image: "src/assets/profiles/zaynab.jpg" },
+    { name: "Saarang Ali", title: "Brothers Events Lead", image: "src/assets/profiles/saarang.png" },
   ];
 
   return (
@@ -38,7 +39,7 @@ const About = () => {
       <section className="min-h-screen md:h-screen md:snap-start relative pt-20 pb-16 md:py-0">
         <div className="absolute inset-0">
           <img
-            src="src/assets/hero.JPG"
+            src="src/assets/about-hero.JPG"
             alt="Background"
             className="w-full h-full object-cover"
           />
@@ -81,7 +82,7 @@ const About = () => {
             <div className="relative">
               <div className="w-72 h-72 md:w-96 md:h-96 bg-white/10 rounded-full absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 blur-3xl"></div>
               <img
-                src="/api/placeholder/600/600"
+                src="src/assets/about-hero.JPG"
                 alt="Vision illustration"
                 className="relative z-10 w-full max-w-md mx-auto"
               />
@@ -100,6 +101,7 @@ const About = () => {
                 key={index}
                 name={member.name}
                 title={member.title}
+                image={member.image} 
               />
             ))}
           </div>

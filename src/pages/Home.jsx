@@ -14,7 +14,7 @@ const ServiceCard = ({ title, children, icon: Icon }) => (
   <div className="bg-white/10 rounded-lg p-3 md:p-6">
     <div className="flex items-center gap-3 mb-2">
       {Icon && <Icon className="w-5 h-5 md:w-6 md:h-6 shrink-0" />}
-      <h3 className="text-base md:text-2xl font-semibold">{title}</h3>
+      <h3 className="text-base md:text-2xl font-light">{title}</h3>
     </div>
     {children}
   </div>
@@ -46,7 +46,7 @@ const HomePage = () => {
       </section>
 
       {/* Who are UNSWMSA? Section */}
-      <section className="min-h-screen md:h-screen md:snap-start bg-[#C84C29] text-white py-16 md:py-0">
+      <section className="min-h-screen md:h-screen md:snap-start bg-[#e76925] text-white py-16 md:py-0">
         <div className="max-w-7xl mx-auto h-full px-4 md:px-16 flex items-center">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-24">
             <div className="relative order-2 md:order-1">
@@ -82,7 +82,7 @@ const HomePage = () => {
       </section>
 
       {/* Services Section */}
-      <section className="min-h-screen md:h-screen md:snap-start bg-[#C84C29] text-white py-16 md:py-0">
+      <section className="min-h-screen md:h-screen md:snap-start bg-[#ad3724] text-white py-16 md:py-0">
         <div className="max-w-6xl mx-auto h-full px-4 md:px-16 flex flex-col justify-center">
           <h2 className="text-2xl md:text-5xl font-light mb-2">UNSWMSA Services</h2>
           <p className="text-base md:text-xl font-light leading-relaxed mb-8">
@@ -135,7 +135,7 @@ const HomePage = () => {
       </section>
 
       {/* Events Section */}
-      <section className="min-h-screen md:h-screen md:snap-start bg-[#F4A261] text-white py-16 md:py-0">
+      <section className="min-h-screen md:h-screen md:snap-start bg-[#961a1e] text-white py-16 md:py-0">
         <div className="max-w-6xl mx-auto h-full px-4 md:px-16 flex flex-col justify-center">
           <div className="flex flex-col">
             <h2 className="text-2xl sm:text-3xl md:text-5xl font-light mb-8">We'd love to see you at our events!</h2>
