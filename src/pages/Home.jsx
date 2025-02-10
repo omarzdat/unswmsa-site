@@ -3,8 +3,8 @@ import { Github, Facebook, Instagram, Linkedin, MessageSquare } from 'lucide-rea
 import EventCard from '../components/EventCard';
 
 const ServiceCard = ({ title, children }) => (
-  <div className="bg-white/10 rounded-lg p-4 md:p-6 aspect-[2/1] flex flex-col items-center justify-center text-center">
-    <h3 className="text-xl md:text-2xl font-semibold mb-2">{title}</h3>
+  <div className="bg-white/10 rounded-lg p-3 md:p-6 flex flex-col items-center justify-center text-center">
+    <h3 className="text-lg md:text-2xl font-semibold mb-1 md:mb-2">{title}</h3>
     {children}
   </div>
 );
@@ -65,22 +65,22 @@ const HomePage = () => {
       {/* Campus Offering Section */}
       <section className="snap-start h-screen bg-[#C84C29] text-white">
         <div className="max-w-6xl mx-auto h-full px-4 md:px-16 flex flex-col justify-center">
-          <h2 className="text-3xl md:text-5xl font-bold mb-8 md:mb-16">On campus we offer...</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-8">
+          <h2 className="text-2xl md:text-5xl font-bold mb-6 md:mb-16">On campus we offer...</h2>
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-8 max-h-[60vh] md:max-h-none">
             <ServiceCard title="Prayer">
-              <p className="text-sm md:text-base">Prayer spaces and facilities</p>
+              <p className="text-xs md:text-base">Prayer spaces and facilities</p>
             </ServiceCard>
             <ServiceCard title="Halaqa">
-              <p className="text-sm md:text-base">Weekly religious discussions</p>
+              <p className="text-xs md:text-base">Weekly religious discussions</p>
             </ServiceCard>
             <ServiceCard title="Service">
-              <p className="text-sm md:text-base">Community service opportunities</p>
+              <p className="text-xs md:text-base">Community service opportunities</p>
             </ServiceCard>
             <ServiceCard title="Support">
-              <p className="text-sm md:text-base">Student support services</p>
+              <p className="text-xs md:text-base">Student support services</p>
             </ServiceCard>
             <ServiceCard title="Education">
-              <p className="text-sm md:text-base">Educational programs</p>
+              <p className="text-xs md:text-base">Educational programs</p>
             </ServiceCard>
           </div>
         </div>
@@ -89,39 +89,53 @@ const HomePage = () => {
       {/* Events Section */}
       <section className="snap-start h-screen bg-[#F4A261] text-white">
         <div className="max-w-6xl mx-auto h-full px-4 md:px-16 flex flex-col justify-center">
-          <div className="flex flex-col max-h-[80vh]"> {/* Limit maximum height */}
-            <h2 className="text-3xl md:text-5xl font-bold mb-12">...and events aplenty</h2>
+          <div className="flex flex-col max-h-[80vh]">
+            <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-6 md:mb-12">...and events aplenty</h2>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {/* Featured Event - Left Side */}
-              <div>
-                <EventCard
-                  isFeatured
-                  title="Featured Event Title"
-                  details="Join us for this amazing featured event that showcases the best of UNSWMSA's community engagement and activities."
-                  showSignUp
-                  imageHeight="h-64"
-                />
-              </div>
+            {/* Mobile Layout */}
+            <div className="flex flex-col gap-4 md:hidden">
+              {/* Featured Event */}
+              <EventCard
+                isFeatured
+                title="Featured Event Title"
+                details="Join us for this amazing featured event that showcases the best of UNSWMSA's community engagement and activities."
+                showSignUp
+              />
               
-              {/* Upcoming Events - Right Side */}
+              <h3 className="text-xl font-semibold mt-2">Upcoming</h3>
+              <div className="grid grid-cols-2 gap-3">
+                <EventCard title="Event 1" />
+                <EventCard title="Event 2" />
+              </div>
+            </div>
+
+            {/* Desktop Layout */}
+            <div className="hidden md:grid md:grid-cols-2 gap-8">
+              {/* Featured Event */}
+              <EventCard
+                isFeatured
+                title="Featured Event Title"
+                details="Join us for this amazing featured event that showcases the best of UNSWMSA's community engagement and activities."
+                showSignUp
+              />
+              
+              {/* Upcoming Events */}
               <div className="flex flex-col">
-                <h3 className="text-2xl md:text-3xl font-semibold mb-8">Upcoming</h3>
-                <div className="grid grid-cols-2 gap-4">
-                  <EventCard 
-                    title="Event 1"
-                    imageHeight="h-40"
-                  />
-                  <EventCard 
-                    title="Event 2"
-                    imageHeight="h-40"
-                  />
+                <h3 className="text-3xl font-semibold mb-8">Upcoming</h3>
+                <div className="grid grid-cols-2 gap-4 flex-grow">
+                  <EventCard title="Event 1" />
+                  <EventCard title="Event 2" />
                 </div>
-                <button className="w-full border-2 border-white px-6 py-2 md:px-8 md:py-3 text-base md:text-lg hover:bg-white hover:text-[#F4A261] transition-colors mt-8">
+                <button className="w-full border-2 border-white px-8 py-3 text-lg hover:bg-white hover:text-[#F4A261] transition-colors mt-8">
                   JOIN TODAY
                 </button>
               </div>
             </div>
+
+            {/* Mobile Join Button */}
+            <button className="md:hidden w-full border-2 border-white px-6 py-2 text-sm hover:bg-white hover:text-[#F4A261] transition-colors mt-6">
+              JOIN TODAY
+            </button>
           </div>
         </div>
       </section>

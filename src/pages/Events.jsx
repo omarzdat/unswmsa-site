@@ -15,7 +15,6 @@ const Events = () => {
               details="Join us for the biggest community iftar of the year! Connect with fellow students, 
                       enjoy amazing food, and celebrate together in this beautiful evening of unity and friendship."
               showSignUp
-              imageHeight="h-72"
             />
             <div className="flex flex-col justify-center">
               <h1 className="text-4xl md:text-6xl mb-4">
@@ -46,7 +45,6 @@ const Events = () => {
               <EventCard
                 key={`upcoming-${i}`}
                 title={`Upcoming Event ${i + 1}`}
-                imageHeight="h-48"
               />
             ))}
           </div>
@@ -62,7 +60,6 @@ const Events = () => {
               <EventCard
                 key={`past-${i}`}
                 title={`Past Event ${i + 1}`}
-                imageHeight="h-48"
                 className="opacity-75 grayscale"
               />
             ))}
