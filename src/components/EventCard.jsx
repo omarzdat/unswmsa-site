@@ -7,6 +7,7 @@ const EventCard = ({
   details, 
   isFeatured = false,
   showSignUp = false,
+  signUpLink = '', // New prop for signup link
   className = '',
   imageClassName = isFeatured ? 'aspect-video' : 'aspect-[4/3]'
 }) => {
@@ -39,17 +40,23 @@ const EventCard = ({
               {details}
             </p>
           )}
-          {showSignUp && (
-            <button className="
-              w-full text-center
-              border-2 border-white 
-              px-3 md:px-8 py-1 md:py-2
-              text-xs md:text-base
-              hover:bg-white hover:text-[#CD4631] 
-              transition-colors
-            ">
+          {showSignUp && signUpLink && (
+            <a
+              href={signUpLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="
+                block w-full text-center
+                border-2 border-white 
+                px-3 md:px-8 py-1 md:py-2
+                text-xs md:text-base
+                text-white
+                hover:bg-white hover:text-[#CD4631] 
+                transition-colors
+              "
+            >
               SIGN UP!
-            </button>
+            </a>
           )}
         </div>
       )}

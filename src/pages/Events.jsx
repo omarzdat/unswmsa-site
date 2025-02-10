@@ -40,7 +40,7 @@ const Events = () => {
       </section>
 
       {/* Upcoming Events Section */}
-      <section className="min-h-screen md:h-screen md:snap-start bg-[#EDE6DD] py-16 md:py-0">
+      <section id="upcoming" className="min-h-screen md:h-screen md:snap-start bg-[#EDE6DD] py-16 md:py-0">
         <div className="max-w-7xl mx-auto px-4 md:px-8 h-full flex flex-col justify-center">
           <h2 className="text-3xl md:text-5xl mb-8 md:mb-12">Keep an eye out for...</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
