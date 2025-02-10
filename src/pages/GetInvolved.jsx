@@ -1,5 +1,6 @@
 import React from 'react';
 import AccordionItem from '../components/Accordion';
+import msaLogo from '../assets/msa-logo-white.png';
 
 const GetInvolved = () => {
   return (
@@ -66,7 +67,7 @@ const GetInvolved = () => {
             {/* Right side - Logo */}
             <div className="flex items-center justify-center order-1 md:order-2 mb-8 md:mb-0">
               <img
-                src="src/assets/msa-logo-white.png"
+                src={msaLogo}
                 alt="UNSWMSA 3D Logo"
                 className="w-48 md:w-full md:max-w-md h-auto"
               />
