@@ -4,13 +4,13 @@ import AccordionItem from '../components/Accordion';
 
 const GetInvolved = () => {
   return (
-    <div className="snap-y snap-mandatory h-screen overflow-y-scroll">
-      <section className="snap-start h-screen bg-[#561C24] flex items-center">
-        <div className="max-w-7xl mx-auto px-4 md:px-8 w-full py-[64px]">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16">
+    <div className="h-screen md:snap-y md:snap-mandatory overflow-y-auto">
+      <section className="min-h-screen md:h-screen md:snap-start bg-[#561C24] pt-20 pb-16 md:py-0">
+        <div className="max-w-7xl mx-auto px-4 md:px-8 h-full flex items-center">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 w-full">
             {/* Left side content */}
             <div className="flex flex-col justify-center order-2 md:order-1">
-              <h1 className="text-3xl sm:text-4xl md:text-6xl text-white mb-4 md:mb-8">
+              <h1 className="text-3xl md:text-6xl text-white mb-4 md:mb-8">
                 Keen to get involved?
               </h1>
               <p className="text-white text-base md:text-xl mb-8 md:mb-12">
@@ -52,9 +52,9 @@ const GetInvolved = () => {
             {/* Right side - Logo */}
             <div className="flex items-center justify-center order-1 md:order-2 mb-8 md:mb-0">
               <img
-                src="src/assets/msa-logo.png"
+                src="/api/placeholder/600/600"
                 alt="UNSWMSA 3D Logo"
-                className="w-full max-w-[200px] md:max-w-md h-auto"
+                className="w-48 md:w-full md:max-w-md h-auto"
               />
             </div>
           </div>

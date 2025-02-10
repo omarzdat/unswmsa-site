@@ -7,7 +7,8 @@ const EventCard = ({
   details, 
   isFeatured = false,
   showSignUp = false,
-  className = '' 
+  className = '',
+  imageClassName = isFeatured ? 'aspect-video' : 'aspect-[4/3]'
 }) => {
   return (
     <div 
@@ -22,9 +23,9 @@ const EventCard = ({
         <img
           src={image || "/api/placeholder/400/300"}
           alt={title}
-          className={`w-full object-cover ${isFeatured ? 'aspect-video' : 'aspect-[4/3]'}`}
+          className={`w-full object-cover ${imageClassName}`}
         />
-        <div className="absolute bottom-0 left-0 w-full p-2 sm:p-4 bg-[#CD4631]">
+        <div className="absolute bottom-0 left-0 w-full p-2 md:p-4 bg-[#CD4631]">
           <h3 className="text-white text-sm sm:text-base md:text-xl">
             {title || "event name/promo"}
           </h3>
@@ -32,9 +33,9 @@ const EventCard = ({
       </div>
       
       {(details || showSignUp) && (
-        <div className="p-3 sm:p-4 md:p-6 text-white">
+        <div className="p-2 md:p-4 text-white">
           {details && (
-            <p className="text-xs sm:text-sm md:text-base mb-3 md:mb-4 line-clamp-2 md:line-clamp-3">
+            <p className="text-xs md:text-base mb-2 md:mb-4 line-clamp-2 md:line-clamp-3">
               {details}
             </p>
           )}
@@ -42,8 +43,8 @@ const EventCard = ({
             <button className="
               w-full text-center
               border-2 border-white 
-              px-3 sm:px-6 md:px-8 py-1 sm:py-2
-              text-xs sm:text-sm md:text-base
+              px-3 md:px-8 py-1 md:py-2
+              text-xs md:text-base
               hover:bg-white hover:text-[#CD4631] 
               transition-colors
             ">
