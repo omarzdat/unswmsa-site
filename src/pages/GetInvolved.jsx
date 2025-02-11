@@ -33,7 +33,7 @@ const GetInvolved = () => {
               <div className="space-y-2">
                 <AccordionItem title="I want to join your chats">
                   <div className="text-sm md:text-base">
-                    Join our <a href="#" className="text-white underline hover:opacity-80">UNSWMSA community chat</a> to stay updated and connected with fellow members.
+                    Join our <a href="https://chat.whatsapp.com/BI7NNk1xGov8wl0jpFD4bx" className="text-white underline hover:opacity-80">UNSWMSA community chat</a> to stay updated and connected with fellow members.
                   </div>
                 </AccordionItem>
 
