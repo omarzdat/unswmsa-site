@@ -10,6 +10,7 @@ import {
 } from 'lucide-react';
 import EventCard from '../components/EventCard';
 import MobileFooter from '../components/MobileFooter';
+import { useNavigate } from 'react-router-dom';
 
 // Import all images
 import heroImage from '/assets/hero.webp';
@@ -31,6 +32,8 @@ const ServiceCard = ({ title, children, icon: Icon }) => (
 );
 
 const HomePage = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="h-screen md:snap-y md:snap-mandatory overflow-y-auto">
       {/* Hero Section */}
@@ -179,7 +182,7 @@ const HomePage = () => {
               </div>
               
               <button 
-                onClick={() => window.location.href = '/events'}
+                onClick={() => navigate('/events')}
                 className="w-full border-2 border-white px-6 py-2 text-base hover:bg-white hover:text-[#F4A261] transition-colors mt-4"
               >
                 FIND OUT MORE
@@ -204,7 +207,7 @@ const HomePage = () => {
                   <EventCard title="Sisters High Tea" image={swmImage} />
                 </div>
                 <button
-                  onClick={() => window.location.href = '/events'}
+                  onClick={() => navigate('/events')}
                   className="w-full border-2 border-white px-8 py-3 text-lg hover:bg-white hover:text-[#961a1e] transition-colors mt-6"
                 >
                   FIND OUT MORE
