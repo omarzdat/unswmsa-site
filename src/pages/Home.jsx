@@ -169,13 +169,18 @@ const HomePage = () => {
                 <h3 className="text-xl font-semibold mb-4">Upcoming</h3>
                 <div className="grid grid-cols-1 gap-4">
                   <EventCard 
-                    title="Meet and Great BBQ"
+                    title="Meat and Greet BBQ"
                     image={meatGreetImage}
                     imageClassName="aspect-[3/2]"
                   />
                   <EventCard 
-                    title="Brothers Games Night"
+                    title="Brothers' Games Night"
                     image={brosGameNightImage}
+                    imageClassName="aspect-[3/2]"
+                  />
+                  <EventCard 
+                    title="Sisters' Games Night"
+                    image={swmImage}
                     imageClassName="aspect-[3/2]"
                   />
                 </div>
@@ -202,9 +207,9 @@ const HomePage = () => {
               <div className="flex flex-col">
                 <h3 className="text-3xl font-light mb-5">Upcoming</h3>
                 <div className="grid grid-cols-2 gap-4 flex-grow">
-                  <EventCard title="Meet and Great BBQ" image={meatGreetImage} />
-                  <EventCard title="Brothers Games Night" image={brosGameNightImage} />
-                  <EventCard title="Sisters High Tea" image={swmImage} />
+                  <EventCard title="Meat and Greet BBQ" image={meatGreetImage} />
+                  <EventCard title="Brothers' Games Night" image={brosGameNightImage} />
+                  <EventCard title="Sisters' High Tea" image={swmImage} />
                 </div>
                 <button
                   onClick={() => navigate('/events')}

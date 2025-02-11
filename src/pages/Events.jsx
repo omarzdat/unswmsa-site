@@ -6,7 +6,7 @@ import MobileFooter from '../components/MobileFooter';
 import oWeekHeroImage from '/assets/o-week-hero.webp';
 import meatGreetImage from '/assets/meat-greet.webp';
 import brosGameNightImage from '/assets/bros-game-night.webp';
-import swmImage from '/assets/swm.jpeg';
+import swmImage from '/assets/swm.webp';
 
 // Import past event images
 import pastBbqImage from '/assets/past-events/past-bbq.webp';
@@ -52,7 +52,7 @@ const Events = () => {
 
   const pastEvents = [
     {
-      title: "Meat and Great '24",
+      title: "Meat and Greet '24",
       image: pastBbqImage
     },
     {
