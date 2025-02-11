@@ -178,8 +178,11 @@ const HomePage = () => {
                 </div>
               </div>
               
-              <button className="w-full border-2 border-white px-6 py-2 text-base hover:bg-white hover:text-[#F4A261] transition-colors mt-4">
-                JOIN TODAY
+              <button 
+                onClick={() => window.location.href = '/events'}
+                className="w-full border-2 border-white px-6 py-2 text-base hover:bg-white hover:text-[#F4A261] transition-colors mt-4"
+              >
+                FIND OUT MORE
               </button>
             </div>
 
@@ -204,7 +207,7 @@ const HomePage = () => {
                   onClick={() => window.location.href = '/events'}
                   className="w-full border-2 border-white px-8 py-3 text-lg hover:bg-white hover:text-[#961a1e] transition-colors mt-6"
                 >
-                  Find out more
+                  FIND OUT MORE
                 </button>
               </div>
             </div>

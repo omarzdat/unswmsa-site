@@ -42,7 +42,6 @@ const About = () => {
   return (
     <div className="h-screen md:snap-y md:snap-mandatory overflow-y-auto">
       {/* Who is UNSWMSA Section */}
-      {/* Who is UNSWMSA Section */}
       <section className="min-h-screen md:h-screen md:snap-start relative flex items-center md:block pt-20 pb-16 md:py-0">
         <div className="absolute inset-0">
           <img
