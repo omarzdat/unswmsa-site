@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Github, Facebook, Instagram, Linkedin, MessageSquare, Youtube, NotepadText } from 'lucide-react';
-import msaLogoColor from '/assets/msa-logo-colour.png';
+import msaLogoColor from '/assets/msa-logo-colour.webp';
 
 const SocialLink = ({ href, icon: Icon }) => (
   <a 

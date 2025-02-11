@@ -2,10 +2,10 @@ import React from 'react';
 import MobileFooter from '../components/MobileFooter';
 
 // Import profile images
-import aboutHeroImage from '/assets/about-hero.jpg';
-import topStackImage from '/assets/vision-stack/top.jpg';
-import midStackImage from '/assets/vision-stack/mid.jpg';
-import bottomStackImage from '/assets/vision-stack/bottom.jpg';
+import aboutHeroImage from '/assets/about-hero.webp';
+import topStackImage from '/assets/vision-stack/top.webp';
+import midStackImage from '/assets/vision-stack/mid.webp';
+import bottomStackImage from '/assets/vision-stack/bottom.webp';
 
 const TeamMember = ({ name, title, image }) => (
   <div className="flex flex-col items-center text-center">
@@ -23,20 +23,20 @@ const TeamMember = ({ name, title, image }) => (
 
 const About = () => {
   const teamMembers = [
-    { name: "Umar Khan", title: "President", image: "/assets/profiles/umar.jpeg" },
-    { name: "Afra Kamal", title: "Vice President", image: "/assets/profiles/afra.jpg" },
-    { name: "Eeman R Shah", title: "Secretary", image: "/assets/profiles/eeman.jpg" },
-    { name: "Ayman Chowdhury", title: "Treasurer", image: "/assets/profiles/ayman.jpg" },
-    { name: "Zakariya Ali Yoga", title: "Arc Delegate", image: "/assets/profiles/zak.jpg" },
-    { name: "Ryan Khan", title: "Media and Content Lead", image: "/assets/profiles/ryan.jpg" },
-    { name: "Nuzhat Anjum", title: "Media and Content Lead", image: "/assets/profiles/nuzhat.jpg" },
-    { name: "Ayishah Ahmad", title: "Media and Content Lead", image: "/assets/profiles/ayishah.jpg" },
-    { name: "AbdulRahman Tijani", title: "Brothers Dawah Lead", image: "/assets/profiles/tijani.jpg" },
-    { name: "Hawra Al Shami", title: "Sisters Dawah Lead", image: "/assets/profiles/hawra.jpg" },
-    { name: "Souad Khan", title: "Activism Lead (Accountability)", image: "/assets/profiles/souad.jpg" },
-    { name: "Rama Emad", title: "Activism Lead (Education)", image: "/assets/profiles/rama.jpg" },
-    { name: "Zaynab Alam", title: "Sisters Events Lead", image: "/assets/profiles/zaynab.jpg" },
-    { name: "Saarang Ali", title: "Brothers Events Lead", image: "/assets/profiles/saarang.png" },
+    { name: "Umar Khan", title: "President", image: "/assets/profiles/umar.webp" },
+    { name: "Afra Kamal", title: "Vice President", image: "/assets/profiles/afra.webp" },
+    { name: "Eeman R Shah", title: "Secretary", image: "/assets/profiles/eeman.webp" },
+    { name: "Ayman Chowdhury", title: "Treasurer", image: "/assets/profiles/ayman.webp" },
+    { name: "Zakariya Ali Yoga", title: "Arc Delegate", image: "/assets/profiles/zak.webp" },
+    { name: "Ryan Khan", title: "Media and Content Lead", image: "/assets/profiles/ryan.webp" },
+    { name: "Nuzhat Anjum", title: "Media and Content Lead", image: "/assets/profiles/nuzhat.webp" },
+    { name: "Ayishah Ahmad", title: "Media and Content Lead", image: "/assets/profiles/ayishah.webp" },
+    { name: "AbdulRahman Tijani", title: "Brothers Dawah Lead", image: "/assets/profiles/tijani.webp" },
+    { name: "Hawra Al Shami", title: "Sisters Dawah Lead", image: "/assets/profiles/hawra.webp" },
+    { name: "Souad Khan", title: "Activism Lead (Accountability)", image: "/assets/profiles/souad.webp" },
+    { name: "Rama Emad", title: "Activism Lead (Education)", image: "/assets/profiles/rama.webp" },
+    { name: "Zaynab Alam", title: "Sisters Events Lead", image: "/assets/profiles/zaynab.webp" },
+    { name: "Saarang Ali", title: "Brothers Events Lead", image: "/assets/profiles/saarang.webp" },
   ];
 
   return (

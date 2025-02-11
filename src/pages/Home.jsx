@@ -12,13 +12,13 @@ import EventCard from '../components/EventCard';
 import MobileFooter from '../components/MobileFooter';
 
 // Import all images
-import heroImage from '/assets/hero.jpg';
-import msaLogoWhite from '/assets/msa-logo-white.png';
-import hennaImage from '/assets/henna.jpg';
-import oWeekImage from '/assets/o-week.png';
-import meatGreetImage from '/assets/meat-greet.jpg';
-import brosGameNightImage from '/assets/bros-game-night.jpg';
-import swmImage from '/assets/swm.jpeg';
+import heroImage from '/assets/hero.webp';
+import msaLogoWhite from '/assets/msa-logo-white.webp';
+import hennaImage from '/assets/henna.webp';
+import oWeekImage from '/assets/o-week.webp';
+import meatGreetImage from '/assets/meat-greet.webp';
+import brosGameNightImage from '/assets/bros-game-night.webp';
+import swmImage from '/assets/swm.webp';
 
 const ServiceCard = ({ title, children, icon: Icon }) => (
   <div className="bg-white/10 rounded-lg p-3 md:p-6">

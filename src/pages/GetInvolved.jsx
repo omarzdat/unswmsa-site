@@ -1,6 +1,6 @@
 import React from 'react';
 import AccordionItem from '../components/Accordion';
-import msaLogo from '/assets/msa-logo-white.png';
+import msaLogo from '/assets/msa-logo-white.webp';
 import MobileFooter from '../components/MobileFooter';
 
 const GetInvolved = () => {
