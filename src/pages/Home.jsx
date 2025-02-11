@@ -15,7 +15,7 @@ import { useNavigate } from 'react-router-dom';
 // Import all images
 import heroImage from '/assets/hero.webp';
 import msaLogoWhite from '/assets/msa-logo-white.webp';
-import hennaImage from '/assets/henna.webp';
+import archImage from '/assets/arch.webp';
 import oWeekImage from '/assets/o-week.webp';
 import meatGreetImage from '/assets/meat-greet.webp';
 import brosGameNightImage from '/assets/bros-game-night.webp';
@@ -64,7 +64,7 @@ const HomePage = () => {
             <div className="relative order-2 md:order-1">
               <div className="relative w-full aspect-[4/5] rounded-t-[200px] md:rounded-t-[400px] overflow-hidden">
                 <img
-                  src={hennaImage}
+                  src={archImage}
                   alt="Middle Eastern food spread"
                   className="w-full h-full object-cover"
                 />
