@@ -13,7 +13,7 @@ import MobileFooter from '../components/MobileFooter';
 import { useNavigate } from 'react-router-dom';
 
 // Import all images
-import heroImage from '/assets/hero2.webp';
+import heroImage from '/assets/hero5.webp';
 import msaLogoWhite from '/assets/msa-logo-white.webp';
 import archImage from '/assets/arch.webp';
 import oWeekImage from '/assets/o-week.webp';
@@ -42,7 +42,8 @@ const HomePage = () => {
           <img
             src={heroImage}
             alt="Soccer players"
-            className="w-full h-full object-cover opacity-60"
+            // className="w-full h-full object-cover opacity-60"
+            className="w-full h-full object-cover"
           />
         </div>
 
