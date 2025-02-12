@@ -32,21 +32,21 @@ const Events = () => {
       details: "Kick off Term 1 with a free BBQ and some good (maybe lifelong) company",
       image: meatGreetImage,
       showSignUp: true,
-      signUpLink: "https://www.instagram.com/p/DFulwwFSXAl/",
+      signUpLink: "https://campus.hellorubric.com/?eid=31154",
     },
     {
       title: "Brothers' Games Night",
       details: "Join us for an epic night of FIFA & Mario competitions, good vibes, and FREE pizza!",
       image: brosGameNightImage,
       showSignUp: true,
-      signUpLink: "https://lovely-catmint-be1.notion.site/192980a12cbf809c870cdb27a6ab73b5",
+      signUpLink: "https://campus.hellorubric.com/?eid=31160",
     },
     {
       title: "Sisters' High Tea",
       details: "A cozy afternoon filled with sisterhood, games, and endless laughter",
       image: swmImage,
       showSignUp: true,
-      signUpLink: "https://lovely-catmint-be1.notion.site/192980a12cbf80a5aac1fc88189f2d05",
+      signUpLink: "https://campus.hellorubric.com/?eid=31158",
     }
   ];
 
