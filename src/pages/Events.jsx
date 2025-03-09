@@ -1,6 +1,9 @@
 import React from 'react';
 import EventCard from '../components/EventCard';
 import MobileFooter from '../components/MobileFooter';
+import { useEffect, useState } from 'react';
+import { client, urlFor } from '../lib/sanityClient';
+import { PortableText } from '@portabletext/react';
 
 // Import upcoming event images
 import oWeekHeroImage from '/assets/o-week-hero.webp';
@@ -19,6 +22,7 @@ import craftCoffeeImage from '/assets/past-events/craft-coffee.webp';
 import iawImage from '/assets/past-events/iaw.webp';
 
 const Events = () => {
+
   const upcomingEvents = [
     {
       title: "O-Week 2025",
@@ -84,6 +88,7 @@ const Events = () => {
       image: iawImage
     }
   ];
+
 
   return (
     <div className="h-screen md:snap-y md:snap-mandatory overflow-y-auto">
