@@ -1,10 +1,11 @@
 import { useState, useEffect, useCallback } from 'react';
 
-const useFooterVisibility = (currentPath) => {
+const useFooterVisibility = (currentPath, containerRef = null) => {
   const [isVisible, setIsVisible] = useState(false);
 
   const checkScroll = useCallback(() => {
-    const container = document.querySelector('.md\\:snap-y');
+    // First try to use the ref if provided
+    const container = containerRef?.current || document.querySelector('.md\\:snap-y');
     if (!container) return;
 
     const scrollPosition = container.scrollTop;
@@ -13,12 +14,13 @@ const useFooterVisibility = (currentPath) => {
     
     const isNearBottom = totalHeight - (scrollPosition + viewportHeight) <= 100;
     setIsVisible(isNearBottom);
-  }, []);
+  }, [containerRef]);
 
   useEffect(() => {
     setIsVisible(false);
     
-    const container = document.querySelector('.md\\:snap-y');
+    // First try to use the ref if provided
+    const container = containerRef?.current || document.querySelector('.md\\:snap-y');
     if (!container) return;
 
     container.addEventListener('scroll', checkScroll);
@@ -29,7 +31,7 @@ const useFooterVisibility = (currentPath) => {
     return () => {
       container.removeEventListener('scroll', checkScroll);
     };
-  }, [checkScroll, currentPath]); // Re-run when path changes
+  }, [checkScroll, currentPath, containerRef]); // Re-run when path or ref changes
 
   return isVisible;
 };

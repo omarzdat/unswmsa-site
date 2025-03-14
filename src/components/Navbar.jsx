@@ -67,6 +67,9 @@ const Navbar = () => {
             <Link to="/get-involved" className={`${hoverColorClass} transition-colors`}>
               Get Involved
             </Link>
+            <Link to="/publications" className={`${hoverColorClass} transition-colors`}>
+              Publications
+            </Link>
           </div>
 
           {/* Desktop Social Icons */}
