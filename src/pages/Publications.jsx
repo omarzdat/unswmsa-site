@@ -70,10 +70,10 @@ const Publications = () => {
   return (
     <div className="min-h-screen overflow-y-auto" ref={containerRef}>
       {/* Hero Section */}
-      <section className="relative bg-[#961a1e] h-[60vh] pt-20">
+      <section className="relative bg-[#ad3724] h-[60vh] pt-20">
         <div className="absolute inset-0 z-0 opacity-40">
           <img
-            src="/assets/arch.webp"
+            src="/assets/books.webp"
             alt="Background"
             className="w-full h-full object-cover"
           />
@@ -92,7 +92,7 @@ const Publications = () => {
         <div className="max-w-4xl mx-auto px-4 md:px-8">
           {/* Featured Publication Card */}
           <div className="bg-white rounded-lg shadow-xl overflow-hidden mb-16">
-            <p className="bg-[#961a1e] text-white text-sm uppercase tracking-wider py-2 px-4 font-medium">
+            <p className="bg-[#ad3724] text-white text-sm uppercase tracking-wider py-2 px-4 font-medium">
               Latest Publication
             </p>
             
@@ -137,7 +137,7 @@ const Publications = () => {
                     
                     <button 
                       onClick={() => navigate(`/publications/${featuredPublication.slug}`)}
-                      className="border-2 border-[#961a1e] text-[#961a1e] px-6 py-2 hover:bg-[#961a1e] hover:text-white transition-colors"
+                      className="border-2 border-[#ad3724] text-[#ad3724] px-6 py-2 hover:bg-[#ad3724] hover:text-white transition-colors"
                     >
                       READ MORE
                     </button>
@@ -162,8 +162,8 @@ const Publications = () => {
             </div>
           ) : (
             <div className="space-y-6">
-              {/* Display all publications in a single column */}
-              {publications.map((pub, index) => (
+              {/* Display all publications except the featured one in a single column */}
+              {publications.slice(1).map((pub, index) => (
                 <div 
                   key={index} 
                   className="group cursor-pointer border-b border-gray-200 pb-6 last:border-0"
@@ -172,7 +172,7 @@ const Publications = () => {
                   <div className="flex flex-col md:flex-row gap-6 group-hover:opacity-90 transition-opacity">
                     {/* Content */}
                     <div className="md:w-2/3">
-                      <h3 className="text-xl md:text-2xl font-light mb-2 group-hover:text-[#961a1e] transition-colors">
+                      <h3 className="text-xl md:text-2xl font-light mb-2 group-hover:text-[#ad3724] transition-colors">
                         {pub.title}
                       </h3>
                       <p className="text-sm text-gray-600 mb-3">

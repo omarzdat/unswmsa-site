@@ -15,15 +15,23 @@ const Navbar = () => {
 
   // Get text color based on route
   const getNavColors = () => {
+    // First check for publication routes
+    if (location.pathname.startsWith('/publications/')) {
+      return 'text-black';
+    }
+    
+    // Then handle all explicit routes
     switch (location.pathname) {
       case '/':
-        return 'text-white'; // Home page
+        return 'text-white';
       case '/about':
-        return 'text-white'; // About page
+        return 'text-white';
       case '/events':
-        return 'text-black'; // Events page
+        return 'text-black';
       case '/get-involved':
-        return 'text-white'; // Get Involved page
+        return 'text-white';
+      case '/publications':
+        return 'text-white';
       default:
         return 'text-white';
     }
@@ -49,7 +57,9 @@ const Navbar = () => {
         {/* Left side - Logo */}
         <Link to="/" className={textColorClass}>
           <img
-            src={location.pathname === '/events' ? msaLogoColor : msaLogoWhite}
+            src={location.pathname === '/events' || 
+                (location.pathname.startsWith('/publications/') && location.pathname !== '/publications') 
+                ? msaLogoColor : msaLogoWhite}
             alt="UNSWMSA Logo"
             className="w-10 h-10 md:w-12 md:h-12 object-contain"
           />

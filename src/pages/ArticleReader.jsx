@@ -3,7 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { client, urlFor } from '../lib/sanityClient';
 import { PortableText } from '@portabletext/react';
 import { format } from 'date-fns';
-import { ArrowLeft, Share2, Twitter, Facebook, Linkedin } from 'lucide-react';
+import { ArrowLeft, Share2, Twitter, Facebook, Linkedin, Instagram } from 'lucide-react';
 
 const ArticleReader = () => {
   const { slug } = useParams();
@@ -71,7 +71,7 @@ const ArticleReader = () => {
       h3: ({children}) => <h3 className="text-xl md:text-2xl font-light my-4">{children}</h3>,
       normal: ({children}) => <p className="text-base md:text-lg my-4 leading-relaxed">{children}</p>,
       blockquote: ({children}) => (
-        <blockquote className="border-l-4 border-[#961a1e] pl-4 italic my-6 text-gray-700">
+        <blockquote className="border-l-4 border-[#ad3724] pl-4 italic my-6 text-gray-700">
           {children}
         </blockquote>
       ),
@@ -88,7 +88,7 @@ const ArticleReader = () => {
       strong: ({children}) => <strong className="font-semibold">{children}</strong>,
       em: ({children}) => <em>{children}</em>,
       link: ({value, children}) => (
-        <a href={value.href} className="text-[#961a1e] underline" target="_blank" rel="noopener noreferrer">
+        <a href={value.href} className="text-[#ad3724] underline" target="_blank" rel="noopener noreferrer">
           {children}
         </a>
       ),
@@ -114,11 +114,13 @@ const ArticleReader = () => {
   const ShareButton = ({ icon: Icon, label, onClick }) => (
     <button 
       onClick={onClick} 
-      className="flex items-center gap-2 text-gray-600 hover:text-[#961a1e]"
+      className="flex items-center gap-2 text-gray-600 hover:text-[#ad3724] group relative"
       aria-label={`Share on ${label}`}
     >
       <Icon size={16} />
-      <span className="text-sm hidden md:inline">{label}</span>
+      <span className="opacity-0 group-hover:opacity-100 transition-opacity absolute -bottom-8 whitespace-nowrap text-xs bg-gray-700 text-white px-2 py-1 rounded left-1/2 transform -translate-x-1/2">
+        Share on {label.replace('Share on ', '')}
+      </span>
     </button>
   );
 
@@ -148,7 +150,7 @@ const ArticleReader = () => {
           <p className="text-gray-600 mb-6">{error}</p>
           <button 
             onClick={handleBack}
-            className="px-4 py-2 bg-[#961a1e] text-white rounded-lg hover:bg-[#7a1419] transition-colors"
+            className="px-4 py-2 bg-[#ad3724] text-white rounded-lg hover:bg-opacity-90 transition-colors"
           >
             Return to Publications
           </button>
@@ -175,6 +177,13 @@ const ArticleReader = () => {
       case 'linkedin':
         window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`, '_blank');
         break;
+      case 'instagram':
+        // Note: Instagram doesn't have a direct web sharing API
+        // This will copy the URL to clipboard with a message
+        navigator.clipboard.writeText(url)
+          .then(() => alert('Link copied to clipboard. Open Instagram and paste in your story!'))
+          .catch(err => console.error('Failed to copy link: ', err));
+        break;
       default:
         // Copy to clipboard
         navigator.clipboard.writeText(url)
@@ -189,7 +198,7 @@ const ArticleReader = () => {
         {/* Back button */}
         <button 
           onClick={handleBack} 
-          className="flex items-center text-gray-600 hover:text-[#961a1e] mb-8"
+          className="flex items-center text-gray-600 hover:text-[#ad3724] mb-8"
         >
           <ArrowLeft size={18} className="mr-2" />
           <span>Back to Publications</span>
@@ -211,29 +220,6 @@ const ArticleReader = () => {
                 </p>
               )}
             </div>
-            
-            <div className="flex gap-4">
-              <ShareButton 
-                icon={Share2} 
-                label="Share" 
-                onClick={() => handleShare('copy')} 
-              />
-              <ShareButton 
-                icon={Twitter} 
-                label="Twitter" 
-                onClick={() => handleShare('twitter')} 
-              />
-              <ShareButton 
-                icon={Facebook} 
-                label="Facebook" 
-                onClick={() => handleShare('facebook')} 
-              />
-              <ShareButton 
-                icon={Linkedin} 
-                label="LinkedIn" 
-                onClick={() => handleShare('linkedin')} 
-              />
-            </div>
           </div>
         </header>
         
@@ -250,7 +236,7 @@ const ArticleReader = () => {
         
         {/* Article excerpt/summary */}
         {article.excerpt && (
-          <div className="mb-8 text-xl italic text-gray-700 border-l-4 border-[#961a1e] pl-4">
+          <div className="mb-8 text-xl italic text-gray-700 border-l-4 border-[#ad3724] pl-4">
             {article.excerpt}
           </div>
         )}
@@ -264,24 +250,29 @@ const ArticleReader = () => {
         <footer className="mt-12 pt-6 border-t border-gray-200">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4 mb-6">
             <p className="text-gray-600">
-              Thanks for reading
+              Thanks for reading!
             </p>
             
-            <div className="flex gap-6">
+            <div className="flex gap-6 py-4">
               <ShareButton 
                 icon={Twitter} 
-                label="Share on Twitter" 
+                label="Twitter" 
                 onClick={() => handleShare('twitter')} 
               />
               <ShareButton 
                 icon={Facebook} 
-                label="Share on Facebook" 
+                label="Facebook" 
                 onClick={() => handleShare('facebook')} 
               />
               <ShareButton 
                 icon={Linkedin} 
-                label="Share on LinkedIn" 
+                label="LinkedIn" 
                 onClick={() => handleShare('linkedin')} 
+              />
+              <ShareButton 
+                icon={Instagram} 
+                label="Instagram" 
+                onClick={() => handleShare('instagram')} 
               />
             </div>
           </div>
