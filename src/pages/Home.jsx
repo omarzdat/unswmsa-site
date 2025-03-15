@@ -1,5 +1,4 @@
-import React from 'react';
-import { Github, Facebook, Instagram, Linkedin, MessageSquare } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
 import { 
   House, 
   BookOpen, 
@@ -11,15 +10,12 @@ import {
 import EventCard from '../components/EventCard';
 import MobileFooter from '../components/MobileFooter';
 import { useNavigate } from 'react-router-dom';
+import { client, urlFor } from '../lib/sanityClient';
 
 // Import all images
 import heroImage from '/assets/hero3.webp';
 import msaLogoWhite from '/assets/msa-logo-white.webp';
 import archImage from '/assets/arch.webp';
-import oWeekImage from '/assets/o-week.webp';
-import meatGreetImage from '/assets/meat-greet.webp';
-import brosGameNightImage from '/assets/bros-game-night.webp';
-import swmImage from '/assets/swm.webp';
 
 const ServiceCard = ({ title, children, icon: Icon }) => (
   <div className="bg-white/10 rounded-lg p-3 md:p-6">
@@ -33,6 +29,65 @@ const ServiceCard = ({ title, children, icon: Icon }) => (
 
 const HomePage = () => {
   const navigate = useNavigate();
+  const [highlightEvent, setHighlightEvent] = useState(null);
+  const [upcomingEvents, setUpcomingEvents] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchEvents = async () => {
+      try {
+        // Query highlight event
+        const highlightQuery = `*[_type == "event" && status == "highlight"] | order(eventDate desc)[0] {
+          title,
+          slug,
+          description,
+          eventDate,
+          location,
+          eventImage,
+          externalLink
+        }`;
+
+        // Query upcoming events
+        const upcomingQuery = `*[_type == "event" && status == "upcoming"] | order(eventDate asc)[0...3] {
+          title,
+          slug,
+          description,
+          eventDate,
+          location,
+          eventImage,
+          externalLink
+        }`;
+
+        // Execute both queries in parallel
+        const [highlightData, upcomingData] = await Promise.all([
+          client.fetch(highlightQuery),
+          client.fetch(upcomingQuery)
+        ]);
+
+        setHighlightEvent(highlightData);
+        setUpcomingEvents(upcomingData);
+        setLoading(false);
+      } catch (error) {
+        console.error("Failed to fetch events from Sanity:", error);
+        setLoading(false);
+      }
+    };
+
+    fetchEvents();
+  }, []);
+
+  // Function to format event data for EventCard component
+  const formatEventForCard = (event) => {
+    if (!event) return null;
+    
+    return {
+      title: event.title,
+      details: event.description ? event.description[0]?.children[0]?.text : "",
+      image: event.eventImage ? urlFor(event.eventImage).url() : null,
+      showSignUp: !!event.externalLink,
+      signUpLink: event.externalLink || '#'
+    };
+  };
 
   return (
     <div className="h-screen md:snap-y md:snap-mandatory overflow-y-auto">
@@ -43,7 +98,6 @@ const HomePage = () => {
             src={heroImage}
             alt="Soccer players"
             className="w-full h-full object-cover opacity-60"
-            // className="w-full h-full object-cover"
           />
         </div>
 
@@ -85,7 +139,7 @@ const HomePage = () => {
               </p>
               <button 
                 onClick={() => window.open('https://campus.hellorubric.com/?tab=memberships&s=6361', '_blank')}
-                className="border-2 border-white text-white px-6 py-2 md:px-8 md:py-3 text-base md:text-lg hover:bg-white hover:text-black transition-color cursor-pointer"
+                className="border-2 border-white text-white px-6 py-2 md:px-8 md:py-3 text-base md:text-lg hover:bg-white hover:text-black transition-colors cursor-pointer"
               >
                 JOIN TODAY
               </button>
@@ -96,7 +150,6 @@ const HomePage = () => {
 
       {/* Services Section */}
       <section className="min-h-screen md:h-screen md:snap-start bg-[#ad3724] text-white py-16 md:py-0">
-        {/* Services content remains the same */}
         <div className="max-w-6xl mx-auto h-full px-4 md:px-16 flex flex-col justify-center">
           <h2 className="text-2xl md:text-5xl font-light mb-2">UNSWMSA Services</h2>
           <p className="text-base md:text-xl font-light leading-relaxed mb-8">
@@ -154,72 +207,87 @@ const HomePage = () => {
           <div className="flex flex-col">
             <h2 className="text-2xl sm:text-3xl md:text-5xl font-light mb-8">We'd love to see you at our events!</h2>
             
-            {/* Mobile Layout */}
-            <div className="flex flex-col gap-6 md:hidden">
-              {/* Featured Event */}
-              <EventCard
-                isFeatured
-                title="UNSWMSA goes O-Week!"
-                details="Come down to the corridor between Int Square and the Quadrangle anytime from 10-4 any day Feb 10-13!"
-                showSignUp
-                imageClassName="aspect-[16/9]"
-                image={oWeekImage}
-              />
-              
-              <div>
-                <h3 className="text-xl font-semibold mb-4">Upcoming</h3>
-                <div className="grid grid-cols-1 gap-4">
-                  <EventCard 
-                    title="Meat and Greet BBQ"
-                    image={meatGreetImage}
-                    imageClassName="aspect-[3/2]"
-                  />
-                  <EventCard 
-                    title="Brothers' Games Night"
-                    image={brosGameNightImage}
-                    imageClassName="aspect-[3/2]"
-                  />
-                  <EventCard 
-                    title="Sisters' Games Night"
-                    image={swmImage}
-                    imageClassName="aspect-[3/2]"
-                  />
-                </div>
+            {loading ? (
+              <div className="text-center py-8">
+                <p>Loading events...</p>
               </div>
-              
-              <button 
-                onClick={() => navigate('/events')}
-                className="w-full border-2 border-white px-6 py-2 text-base hover:bg-white hover:text-[#F4A261] transition-colors mt-4"
-              >
-                FIND OUT MORE
-              </button>
-            </div>
+            ) : (
+              <>
+                {/* Mobile Layout */}
+                <div className="flex flex-col gap-6 md:hidden">
+                  {/* Featured Event */}
+                  {highlightEvent && (
+                    <EventCard
+                      isFeatured
+                      title={highlightEvent.title}
+                      details={highlightEvent.description ? highlightEvent.description[0]?.children[0]?.text : ""}
+                      showSignUp={!!highlightEvent.externalLink}
+                      signUpLink={highlightEvent.externalLink}
+                      imageClassName="aspect-[16/9]"
+                      image={highlightEvent.eventImage ? urlFor(highlightEvent.eventImage).url() : null}
+                    />
+                  )}
+                  
+                  <div>
+                    <h3 className="text-xl font-semibold mb-4">Upcoming</h3>
+                    <div className="grid grid-cols-1 gap-4">
+                      {upcomingEvents.map((event, index) => (
+                        <EventCard 
+                          key={`mobile-event-${index}`}
+                          title={event.title}
+                          details={event.description ? event.description[0]?.children[0]?.text : ""}
+                          image={event.eventImage ? urlFor(event.eventImage).url() : null}
+                          showSignUp={!!event.externalLink}
+                          signUpLink={event.externalLink}
+                          imageClassName="aspect-[3/2]"
+                        />
+                      ))}
+                    </div>
+                  </div>
+                  
+                  <button 
+                    onClick={() => navigate('/events')}
+                    className="w-full border-2 border-white px-6 py-2 text-base hover:bg-white hover:text-[#961a1e] transition-colors mt-4"
+                  >
+                    FIND OUT MORE
+                  </button>
+                </div>
 
-            {/* Desktop Layout */}
-            <div className="hidden md:grid md:grid-cols-2 gap-8">
-              <EventCard
-                image={oWeekImage}
-                title="UNSWMSA goes O-Week!"
-                details="Come down to the corridor between Int Square and the Quadrangle anytime from 10-4 any day Feb 10-13!"
-                showSignUp
-                signUpLink='https://www.instagram.com/p/DFsGOh9yroE/?img_index=1'
-              />
-              
-              <div className="flex flex-col">
-                <h3 className="text-3xl font-light mb-5">Upcoming</h3>
-                <div className="grid grid-cols-2 gap-4 flex-grow">
-                  <EventCard title="Meat and Greet BBQ" image={meatGreetImage} />
-                  <EventCard title="Brothers' Games Night" image={brosGameNightImage} />
-                  <EventCard title="Sisters' High Tea" image={swmImage} />
+                {/* Desktop Layout */}
+                <div className="hidden md:grid md:grid-cols-2 gap-8">
+                  {highlightEvent && (
+                    <EventCard
+                      image={highlightEvent.eventImage ? urlFor(highlightEvent.eventImage).url() : null}
+                      title={highlightEvent.title}
+                      details={highlightEvent.description ? highlightEvent.description[0]?.children[0]?.text : ""}
+                      showSignUp={!!highlightEvent.externalLink}
+                      signUpLink={highlightEvent.externalLink}
+                    />
+                  )}
+                  
+                  <div className="flex flex-col">
+                    <h3 className="text-3xl font-light mb-5">Upcoming</h3>
+                    <div className="grid grid-cols-2 gap-4 flex-grow">
+                      {upcomingEvents.map((event, index) => (
+                        <EventCard 
+                          key={`desktop-event-${index}`}
+                          title={event.title}
+                          image={event.eventImage ? urlFor(event.eventImage).url() : null}
+                          showSignUp={!!event.externalLink}
+                          signUpLink={event.externalLink}
+                        />
+                      ))}
+                    </div>
+                    <button
+                      onClick={() => navigate('/events')}
+                      className="w-full border-2 border-white px-8 py-3 text-lg hover:bg-white hover:text-[#961a1e] transition-colors mt-6"
+                    >
+                      FIND OUT MORE
+                    </button>
+                  </div>
                 </div>
-                <button
-                  onClick={() => navigate('/events')}
-                  className="w-full border-2 border-white px-8 py-3 text-lg hover:bg-white hover:text-[#961a1e] transition-colors mt-6"
-                >
-                  FIND OUT MORE
-                </button>
-              </div>
-            </div>
+              </>
+            )}
           </div>
         </div>
       </section>
