@@ -16,6 +16,18 @@ const Events = () => {
       setIsLoading(true);
       
       try {
+        // First, let's test with a simple query to see if any events exist
+        const allEvents = await client.fetch('*[_type == "event"]');
+        console.log('All events:', allEvents);
+        
+        if (allEvents.length === 0) {
+          console.log('No events found in the dataset');
+          setIsLoading(false);
+          return;
+        }
+
+
+
         // Fetch highlight event
         const highlightQuery = `*[_type == "event" && status == "highlight"] | order(eventDate desc)[0] {
           title,
@@ -66,14 +78,14 @@ const Events = () => {
     fetchEvents();
   }, []);
 
-  // Fallback data for highlight event only
+  // // Fallback data for highlight event only
   // const fallbackHighlight = {
   //   title: "O-Week 2025",
   //   details: "Catch us on Feb 10-13, in the corridor between Int. Square & Quadrangle anytime from 10am - 4pm",
   //   image: "/assets/o-week-hero.webp",
   //   showSignUp: true,
   //   signUpLink: "https://www.instagram.com/p/DFsGOh9yroE/?img_index=1",
-  // };
+  //   };
 
   return (
     <div className="h-screen md:snap-y md:snap-mandatory overflow-y-auto">
@@ -86,16 +98,13 @@ const Events = () => {
                 <div className="animate-pulse bg-gray-300 rounded-lg h-80 w-full"></div>
               ) : (
                 <EventCard
-                  title={highlightEvent?.title || fallbackHighlight.title}
-                  details={highlightEvent?.description ? 
-                    <PortableText value={highlightEvent.description} /> : 
-                    fallbackHighlight.details}
-                  image={highlightEvent?.image ? 
-                    urlFor(highlightEvent.image).url() : 
-                    fallbackHighlight.image}
+                  title={highlightEvent?.title || ""}
+                  details={highlightEvent?.description && 
+                    <PortableText value={highlightEvent.description} />}
+                  image={highlightEvent?.image && urlFor(highlightEvent.image).url()}
                   isFeatured
                   showSignUp={!!highlightEvent?.externalLink}
-                  signUpLink={highlightEvent?.externalLink || fallbackHighlight.signUpLink}
+                  signUpLink={highlightEvent?.externalLink || "#"}
                 />
               )}
             </div>
@@ -104,7 +113,7 @@ const Events = () => {
                 We'd love to see you at
                 <br />
                 <span className="bg-[#e76925] text-white px-2 mt-2 inline-block">
-                  {isLoading ? "Loading..." : (highlightEvent?.title || "O-Week 2025")}
+                  {isLoading ? "Loading..." : highlightEvent?.title}
                 </span>
               </h1>
               <p className="text-base md:text-lg mb-8">
