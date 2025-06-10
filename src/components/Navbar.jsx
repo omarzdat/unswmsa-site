@@ -1,17 +1,36 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Github, Facebook, Instagram, Linkedin, Youtube, MessageSquare, Menu, X, NotepadText } from 'lucide-react';
+import { Github, Facebook, Instagram, Linkedin, Youtube, MessageSquare, Menu, X, NotepadText, ChevronDown } from 'lucide-react';
 import msaLogoColor from '/assets/msa-logo-colour.webp';
 import msaLogoWhite from '/assets/msa-logo-white.webp';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isResourcesOpen, setIsResourcesOpen] = useState(false);
+  const [isMobileResourcesOpen, setIsMobileResourcesOpen] = useState(false);
   const location = useLocation();
+  const resourcesRef = useRef(null);
 
   // Close menu when route changes
   useEffect(() => {
     setIsMenuOpen(false);
+    setIsResourcesOpen(false);
+    setIsMobileResourcesOpen(false);
   }, [location]);
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (resourcesRef.current && !resourcesRef.current.contains(event.target)) {
+        setIsResourcesOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
 
   // Get text color based on route
   const getNavColors = () => {
@@ -51,6 +70,8 @@ const Navbar = () => {
     </a>
   );
 
+  const dawahLink = "https://lovely-catmint-be1.notion.site/Dawah-Resource-Hub-18f980a12cbf8031a811d7cdebd99f17"; 
+
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 px-4 md:px-8 py-4 md:py-6">
       <div className="max-w-7xl mx-auto flex justify-between items-center">
@@ -80,6 +101,34 @@ const Navbar = () => {
             <Link to="/publications" className={`${hoverColorClass} transition-colors`}>
               Publications
             </Link>
+            
+            {/* Resources Dropdown */}
+            <div className="relative" ref={resourcesRef}>
+              <button
+                onClick={() => setIsResourcesOpen(!isResourcesOpen)}
+                className={`${hoverColorClass} transition-colors flex items-center space-x-1`}
+                aria-expanded={isResourcesOpen}
+                aria-haspopup="true"
+              >
+                <span>Resources</span>
+                <ChevronDown className={`w-4 h-4 transition-transform ${isResourcesOpen ? 'rotate-180' : ''}`} />
+              </button>
+              
+              {/* Dropdown Menu */}
+              {isResourcesOpen && (
+                <div className="absolute top-full mt-2 left-0 bg-white rounded-md shadow-lg border border-gray-200 min-w-[150px] py-2 z-50">
+                  <a
+                    href={dawahLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block px-4 py-2 text-gray-800 hover:bg-gray-100 transition-colors"
+                    onClick={() => setIsResourcesOpen(false)}
+                  >
+                    Dawah
+                  </a>
+                </div>
+              )}
+            </div>
           </div>
 
           {/* Desktop Social Icons */}
@@ -147,6 +196,37 @@ const Navbar = () => {
             >
               Get Involved
             </Link>
+            <Link 
+              to="/publications" 
+              className="text-white text-2xl hover:text-gray-300 transition-colors"
+            >
+              Publications
+            </Link>
+            
+            {/* Mobile Resources Dropdown */}
+            <div>
+              <button
+                onClick={() => setIsMobileResourcesOpen(!isMobileResourcesOpen)}
+                className="text-white text-2xl hover:text-gray-300 transition-colors flex items-center justify-between w-full"
+              >
+                <span>Resources</span>
+                <ChevronDown className={`w-5 h-5 transition-transform ${isMobileResourcesOpen ? 'rotate-180' : ''}`} />
+              </button>
+              
+              {/* Mobile Dropdown Items */}
+              {isMobileResourcesOpen && (
+                <div className="ml-4 mt-3">
+                  <a
+                    href={dawahLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block text-gray-300 text-xl hover:text-white transition-colors"
+                  >
+                    Dawah
+                  </a>
+                </div>
+              )}
+            </div>
           </div>
 
           {/* Mobile Social Links */}
