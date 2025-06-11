@@ -116,10 +116,14 @@ const Events = () => {
                   {isLoading ? "Loading..." : highlightEvent?.title}
                 </span>
               </h1>
-              <p className="text-base md:text-lg mb-8">
-                Come join the brotherhood & sisterhood, join amazing volunteering teams, and walk away with some awesome freebies! 
-                We're beyond excited to kick off this year with you, so don't miss out on the fun!
-                Let's make memories and build a community that's strong in faith and action! 
+              <p className="text-base md:text-sm mb-1">
+                This year’s theme, “Faith Beyond the Headlines. Islam Beyond Assumptions,” dives deep into media portrayals, 
+                challenges misconceptions, and reclaims the narrative. From myth-busting and personal stories to art, 
+                games, and spiritual reflection, each day brings something unique. Keep an eye on our socials for more details!
+                Want to be part of the team? Message us to volunteer and get involved!
+              </p>
+              <p className="text-base md:text-sm mb-8">
+                Want to be part of the team? Message us to volunteer and get involved!
               </p>
             </div>
           </div>
