@@ -120,7 +120,6 @@ const Events = () => {
                 This year’s theme, “Faith Beyond the Headlines. Islam Beyond Assumptions,” dives deep into media portrayals, 
                 challenges misconceptions, and reclaims the narrative. From myth-busting and personal stories to art, 
                 games, and spiritual reflection, each day brings something unique. Keep an eye on our socials for more details!
-                Want to be part of the team? Message us to volunteer and get involved!
               </p>
               <p className="text-base md:text-sm mb-8">
                 Want to be part of the team? Message us to volunteer and get involved!
