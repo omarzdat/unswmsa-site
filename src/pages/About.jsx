@@ -7,6 +7,11 @@ import topStackImage from '/assets/vision-stack/top.webp';
 import midStackImage from '/assets/vision-stack/mid.webp';
 import bottomStackImage from '/assets/vision-stack/bottom.webp';
 
+// Import sponsor logos
+import humanAppealLogo from '/assets/sponsors/humanappeal.webp';
+import icfalLogo from '/assets/sponsors/icfal.webp';
+import headstartLogo from '/assets/sponsors/headstart.webp';
+
 const TeamMember = ({ name, title, image }) => (
   <div className="flex flex-col items-center text-center">
     <div className="w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden mb-3 bg-white/10">
@@ -18,6 +23,21 @@ const TeamMember = ({ name, title, image }) => (
     </div>
     <h3 className="text-base md:text-lg font-light text-white mb-0.5">{name}</h3>
     <p className="text-xs md:text-sm text-white/80">{title}</p>
+  </div>
+);
+
+const SponsorCard = ({ name, logo, description, url }) => (
+  <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 md:p-8 text-center hover:bg-white/20 hover:scale-105 transition-all duration-300 cursor-pointer group"
+       onClick={() => url && window.open(url, '_blank')}>
+    <div className="w-28 h-28 md:w-32 md:h-32 mx-auto mb-4 md:mb-6 bg-white rounded-lg p-4 flex items-center justify-center group-hover:shadow-lg transition-shadow duration-300">
+      <img
+        src={logo}
+        alt={`${name} logo`}
+        className="w-full h-full object-contain"
+      />
+    </div>
+    <h3 className="text-lg md:text-xl font-medium text-white mb-3 md:mb-4 group-hover:text-white/90">{name}</h3>
+    <p className="text-sm md:text-base text-white/80 leading-relaxed group-hover:text-white/70">{description}</p>
   </div>
 );
 
@@ -37,6 +57,27 @@ const About = () => {
     { name: "Rama Emad", title: "Activism Lead (Education)", image: "/assets/profiles/rama.webp" },
     { name: "Zaynab Alam", title: "Sisters Events Lead", image: "/assets/profiles/zaynab.webp" },
     { name: "Saarang Ali", title: "Brothers Events Lead", image: "/assets/profiles/saarang.webp" },
+  ];
+
+  const sponsors = [
+    {
+      name: "Human Appeal",
+      logo: humanAppealLogo,
+      description: "An international humanitarian charity dedicated to providing emergency relief and sustainable development programs to communities in need around the world.",
+      url: "https://www.humanappeal.org.au/"
+    },
+    {
+      name: "ICFAL",
+      logo: icfalLogo,
+      description: "Islamic Co-Operative Finance Australia Limited, providing Sharia-compliant financial solutions and services to the Australian Muslim community.",
+      url: "https://www.icfal.com.au/" 
+    },
+    {
+      name: "Headstart Legal",
+      logo: headstartLogo,
+      description: "Australia’s first law firm established expressly with the vision of powering the growth and achievement of Australia’s burgeoning Muslim community.",
+      url: "https://headstartlegal.com.au/"
+    }
   ];
 
   return (
@@ -135,6 +176,30 @@ const About = () => {
                 name={member.name}
                 title={member.title}
                 image={member.image} 
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Sponsors Section */}
+      <section className="min-h-screen md:h-screen md:snap-start py-16 md:py-0 bg-gradient-to-b from-[#ad3724] to-[#8b2f19]">
+        <div className="max-w-7xl mx-auto px-4 md:px-8 h-full flex flex-col justify-center">
+          <div className="text-center mb-12 md:mb-16">
+            <h2 className="text-3xl md:text-5xl text-white mb-4 md:mb-6">Our Sponsors</h2>
+            <p className="text-lg md:text-xl text-white/80 max-w-3xl mx-auto">
+              We're grateful to our generous sponsors who support our mission and help us serve the UNSW Muslim community.
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 max-w-6xl mx-auto">
+            {sponsors.map((sponsor, index) => (
+              <SponsorCard
+                key={index}
+                name={sponsor.name}
+                logo={sponsor.logo}
+                description={sponsor.description}
+                url={sponsor.url}
               />
             ))}
           </div>
