@@ -4,6 +4,7 @@ import Footer from './components/Footer'
 import Home from './pages/Home'
 import About from './pages/About'
 import GetInvolved from './pages/GetInvolved'
+import SocialJusticePanel from './pages/Panel'
 import Events from './pages/Events'
 import Publications from './pages/Publications'
 import ArticleReader from './pages/ArticleReader'
@@ -24,6 +25,7 @@ const AppContent = () => {
           <Route path="/events" element={<Events />} />
           <Route path="/publications" element={<Publications />} />
           <Route path="/publications/:slug" element={<ArticleReader />} />
+          <Route path="/sjp" element={<SocialJusticePanel />} />
         </Routes>
       </main>
       <div className={`transition-opacity duration-300 ${showFooter ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
