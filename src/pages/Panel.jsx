@@ -77,6 +77,7 @@ const SocialJusticePanel = () => {
             margin-top: 30px;
             margin-bottom: 15px;
             page-break-before: auto;
+            color:rgb(255, 255, 255);
         }
         
         h3 {
