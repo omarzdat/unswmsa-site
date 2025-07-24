@@ -5,26 +5,30 @@ const SocialJusticePanel = () => {
   const [activeSection, setActiveSection] = useState(null);
   const [hoveredCard, setHoveredCard] = useState(null);
 
-  // Hide footer on this page
+  // Hide navbar and footer on this page
   React.useEffect(() => {
-    const footer = document.querySelector('footer');
-    if (footer) {
-      footer.style.display = 'none';
-    }
+    // Hide navbar/header elements
+    const navbar = document.querySelector('nav');
+    const header = document.querySelector('header');
+    const navbars = document.querySelectorAll('nav, header, [class*="nav"], [class*="header"], [id*="nav"], [id*="header"]');
     
-    // Also hide any other potential footer elements
+    navbars.forEach(el => {
+      if (el) el.style.display = 'none';
+    });
+
+    // Hide footer elements
+    const footer = document.querySelector('footer');
     const footers = document.querySelectorAll('footer, [class*="footer"], [id*="footer"]');
+    
     footers.forEach(el => {
       if (el) el.style.display = 'none';
     });
     
-    // Cleanup: restore footer when component unmounts
+    // Cleanup: restore elements when component unmounts
     return () => {
-      const footer = document.querySelector('footer');
-      if (footer) {
-        footer.style.display = '';
-      }
-      const footers = document.querySelectorAll('footer, [class*="footer"], [id*="footer"]');
+      navbars.forEach(el => {
+        if (el) el.style.display = '';
+      });
       footers.forEach(el => {
         if (el) el.style.display = '';
       });
@@ -304,29 +308,12 @@ const SocialJusticePanel = () => {
     }
   ];
 
-  const AccordionItem = ({ title, children, isActive, onClick }) => (
-    <div className="border border-white/20 rounded-lg overflow-hidden backdrop-blur-sm bg-white/5">
-      <button
-        onClick={onClick}
-        className="w-full px-4 py-3 text-left flex items-center justify-between text-white hover:bg-white/10 transition-colors"
-      >
-        <span className="font-medium">{title}</span>
-        <ChevronDown className={`w-5 h-5 transition-transform ${isActive ? 'rotate-180' : ''}`} />
-      </button>
-      {isActive && (
-        <div className="px-4 pb-4 text-white/90 text-sm leading-relaxed">
-          {children}
-        </div>
-      )}
-    </div>
-  );
-
   return (
     <div className="min-h-screen relative overflow-x-hidden" style={{ background: 'linear-gradient(to bottom, #961a1e, #ad3724)' }}>
       {/* Darkening overlay for entire background */}
       <div className="fixed inset-0 bg-black opacity-40 z-0"></div>
       
-      <div className="relative z-10 max-w-6xl mx-auto px-4 pt-24 pb-8">
+      <div className="relative z-10 max-w-6xl mx-auto px-4 pt-8 pb-8">
         {/* Header */}
         <div className="text-center mb-12">
           {/* PDF Download Button */}
