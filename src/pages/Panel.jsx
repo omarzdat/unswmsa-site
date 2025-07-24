@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, Fragment } from 'react';
 import { ChevronDown, Download } from 'lucide-react';
 
 const SocialJusticePanel = () => {
@@ -349,42 +349,95 @@ const SocialJusticePanel = () => {
         {/* Interactive Region Cards */}
         <div className="flex flex-wrap justify-center gap-6 mb-12 max-w-5xl mx-auto">
           {regions.map((region, index) => (
-            <div
-              key={region.id}
-              className={`relative overflow-hidden rounded-2xl cursor-pointer transform transition-all duration-300 h-64 w-80 ${
-                hoveredCard === region.id ? 'scale-105 shadow-2xl' : 'shadow-lg hover:shadow-xl'
-              }`}
-              onMouseEnter={() => setHoveredCard(region.id)}
-              onMouseLeave={() => setHoveredCard(null)}
-              onClick={() => setActiveSection(activeSection === region.id ? null : region.id)}
-            >
-              {/* Background Image */}
-              <div 
-                className="absolute inset-0 bg-cover bg-center"
-                style={{ backgroundImage: `url(${region.image})` }}
-              ></div>
-              {/* Dark overlay */}
-              <div className="absolute inset-0 bg-black/60"></div>
-              
-              <div className="relative z-10 p-6 h-full flex flex-col justify-end">
-                <h3 className="text-xl font-bold text-white mb-2">{region.title}</h3>
-                <p className="text-white/90 text-sm mb-4 line-clamp-3">
-                  {region.brief}
-                </p>
-                <div className="flex items-center text-white/80 text-xs">
-                  <span>Click to learn more</span>
-                  <ChevronDown className={`w-4 h-4 ml-2 transition-transform ${
-                    activeSection === region.id ? 'rotate-180' : ''
-                  }`} />
+            <React.Fragment key={region.id}>
+              <div
+                className={`relative overflow-hidden rounded-2xl cursor-pointer transform transition-all duration-300 h-64 w-80 ${
+                  hoveredCard === region.id ? 'scale-105 shadow-2xl' : 'shadow-lg hover:shadow-xl'
+                }`}
+                onMouseEnter={() => setHoveredCard(region.id)}
+                onMouseLeave={() => setHoveredCard(null)}
+                onClick={() => setActiveSection(activeSection === region.id ? null : region.id)}
+              >
+                {/* Background Image */}
+                <div 
+                  className="absolute inset-0 bg-cover bg-center"
+                  style={{ backgroundImage: `url(${region.image})` }}
+                ></div>
+                {/* Dark overlay */}
+                <div className="absolute inset-0 bg-black/60"></div>
+                
+                <div className="relative z-10 p-6 h-full flex flex-col justify-end">
+                  <h3 className="text-xl font-bold text-white mb-2">{region.title}</h3>
+                  <p className="text-white/90 text-sm mb-4 line-clamp-3">
+                    {region.brief}
+                  </p>
+                  <div className="flex items-center text-white/80 text-xs">
+                    <span>Click to learn more</span>
+                    <ChevronDown className={`w-4 h-4 ml-2 transition-transform ${
+                      activeSection === region.id ? 'rotate-180' : ''
+                    }`} />
+                  </div>
                 </div>
               </div>
-            </div>
+
+              {/* Detailed Section - appears after each card on mobile */}
+              {activeSection === region.id && (
+                <div className="w-full md:hidden">
+                  <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 mb-4 border border-white/20 mx-4">
+                    <div className="space-y-6">
+                      <div className="text-center mb-6">
+                        <h2 className="text-2xl font-bold text-white">{region.title}</h2>
+                      </div>
+
+                      <div className="space-y-6">
+                        <div>
+                          <h3 className="text-lg font-semibold text-white mb-3">Brief History</h3>
+                          <p className="text-white/90 leading-relaxed text-sm">
+                            {region.brief}
+                          </p>
+                        </div>
+                        
+                        <div>
+                          <h3 className="text-lg font-semibold text-white mb-3">Current Situation</h3>
+                          <p className="text-white/90 leading-relaxed text-sm">
+                            {region.current}
+                          </p>
+                        </div>
+
+                        <div>
+                          <h3 className="text-lg font-semibold text-white mb-3">Actionable Steps</h3>
+                          <ul className="space-y-2 mb-4">
+                            {region.actions.map((action, idx) => (
+                              <li key={idx} className="flex items-start">
+                                <div className="w-2 h-2 bg-white rounded-full mt-1.5 mr-2 flex-shrink-0"></div>
+                                <span className="text-white/90 text-sm">{action}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+
+                        <div className="bg-white/5 rounded-lg p-3 border-l-4 border-white/50">
+                          <div className="text-center mb-2">
+                            <p className="text-white/90 italic text-xs" style={{ fontFamily: 'serif', direction: 'rtl', lineHeight: '1.6' }}>
+                              {region.verse.split('\n')[0]}
+                            </p>
+                          </div>
+                          <p className="text-white/90 italic text-xs leading-relaxed text-center">
+                            {region.verse.split('\n')[1]}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
+            </React.Fragment>
           ))}
         </div>
 
-        {/* Detailed Section */}
+        {/* Detailed Section - Desktop only */}
         {activeSection && (
-          <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 md:p-8 mb-8 border border-white/20 max-w-4xl mx-auto">
+          <div className="hidden md:block bg-white/10 backdrop-blur-md rounded-2xl p-6 md:p-8 mb-8 border border-white/20 max-w-4xl mx-auto">
             {(() => {
               const activeRegion = regions.find(r => r.id === activeSection);
               return (
