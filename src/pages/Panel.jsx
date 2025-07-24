@@ -244,7 +244,7 @@ const SocialJusticePanel = () => {
       id: 'palestine',
       title: 'Palestine',
       image: '/assets/countries/palestine.webp',
-      brief: 'Palestine was colonised under British rule and partitioned in 1948, leading to the Nakba - the mass expulsion of over 750,000 Palestinians. Israel continues to occupy and annex Palestinian land, commit genocide on the Palestinian people, countless acts of war crimes and inhumane destruction of all life.',
+      brief: 'Under constant occupation, war, and as of today, starvation.',
       current: 'Since October 2023, Israel\'s genocide on Gaza has killed about 50,000 people. Entire lineages have been eradicated. The ICJ has warned of a plausible genocide yet no proper action has been taken. The international community is weak – from the Arab nations to the USA, Israel is in everyone\'s pockets. It is a bitter and sad reality we live in at the moment.',
       actions: [
         'Support: Boycotting!!! It works! Follow the BDS Movement! Boycott Maccas, Starbucks, Coca Cola and many more companies. It works – these companies feel the heat.',
@@ -257,7 +257,7 @@ const SocialJusticePanel = () => {
       id: 'kashmir',
       title: 'Kashmir',
       image: '/assets/countries/kashmir.webp',
-      brief: 'Kashmir has been disputed since the 1947 partition of India and Pakistan. A heavily militarised zone, its Muslim-majority population has long called for self-determination, resisting occupation and state violence. The fascist Indian government has constantly oppressed the Muslim people of Kashmir, imposing blockades, lockdowns and instilling hatred between the Hindu and Muslim population.',
+      brief: 'Constantly militarised and always calling for independence.',
       current: 'In 2019, India revoked Article 370, removing Kashmir\'s semi-autonomy. This meant Muslim Kashmiris lost many rights to own land and basic rights as citizens of India. This was followed by lockdowns, internet blackouts, curfews, mass arrests, and a silencing of any form of protest. Many protesters were injured, arrested and even killed. The brutalisation of military forces spearheaded by the fascist leader, Prime Minister Narendra Modi, has only been a force of destruction and degradation of the way of life for Muslim Kashmiris. Human rights groups continue to report torture, killings, and many rapes cases, yet the biased and discriminatory Indian government fails to act. There is a multitude of racism present in India at the moment, with thousands of Muslims facing persecution and abuse. Hindu extremists such as the RSS Group (one which PM Modi is part of) continue to plague the peace of India, pressing for discrimination and divide.',
       actions: [
         'Support: Stand With Kashmir Initiative',
@@ -269,7 +269,7 @@ const SocialJusticePanel = () => {
       id: 'rohingya',
       title: 'Rohingya Muslims',
       image: '/assets/countries/rohingya.webp',
-      brief: 'The Rohingya are an ethnic Muslim minority in Myanmar\'s Rakhine State, denied citizenship since 1982. They have long been subjected to persecution, statelessness, and exclusion. They have often been forgotten in the world and their story has not been paid attention to. They have faced persecution in their hometowns as well as in Bangladesh, where they seek refuge.',
+      brief: 'The Rohingya are an ethnic Muslim minority in Myanmar\'s Rakhine State, denied citizenship since 1982, long subjected to persecution, statelessness, and exclusion.',
       current: 'In 2017, the Myanmar military launched a brutal crackdown of the Rohingya population – many villages burned, hundreds of women raped, and thousands of innocent families killed. Over 1 million Rohingya people now live in overcrowded refugee camps in Bangladesh, with no clear path to safety or return. These refugee camps are not safe either – there have been reports of abuse and discrimination in these camps as well at the behest of Bangladeshi authorities. In recent times, ex-PM Sheikh Hasina of Bangladesh was involved in multiple atrocities and persecutions of Rohingya Muslims in Bangladesh. Her exile pushed by the youth of Bangladesh was a hopeful sign, however there is still a lot of silence on this issue and a lot of persecution still exists.',
       actions: [
         'Support: Human Rights Watch Rohingya Projects',
@@ -282,7 +282,7 @@ const SocialJusticePanel = () => {
       id: 'uyghur',
       title: 'Uyghur Muslims',
       image: '/assets/countries/uyghur.webp',
-      brief: 'Uyghur Muslims are a Turkic ethnic group in China\'s Xinjiang region. Since 2014, the Chinese government has escalated a campaign of forced assimilation, under the guise of counter-terrorism. Uyghur Muslims have faced persecution for years, yet their story has been actively silenced by the Chinese government.',
+      brief: 'Uyghur Muslims have faced persecution for years, yet their story has been actively silenced by the Chinese government.',
       current: 'Over 1 million Uyghurs have been detained in "re-education" camps. These camps involve the removal of Islam from within Uyghur communities to try and destroy any remnants of Islamic teachings and principles in the population. Testimonies reveal there has been torture, forced labour, sexual abuse, and mass surveillance of Uyghur Muslims. Men are forced to remove their beards, women forced to marry non Muslim men and accept the rape that ensues, children brainwashed and all Islam wiped away. Mosques, cemeteries, and the Arabic language are all being slowly erased. The Athan is changed to include praise for China\'s leadership, must be in Chinese and must not resonate to classical Islamic traditions. Mosques are converted into night clubs and graves are desecrated.',
       actions: [
         'Support: Campaign for Uyghurs, Uyghur Human Rights Project',
@@ -295,7 +295,7 @@ const SocialJusticePanel = () => {
       id: 'sudan',
       title: 'Sudan', 
       image: '/assets/countries/sudan.webp',
-      brief: 'Sudan has experienced decades of conflict rooted in colonial legacies, ethnic tensions, marginalisation of Muslims, and authoritarian rule. The Darfur genocide (2003-current) and the secession of South Sudan in 2011 left the country fractured. In 2019, a popular revolution ousted longtime dictator Omar al-Bashir, raising hopes for democracy and peace to the people.',
+      brief: 'Sudan has experienced decades of conflict rooted in colonial legacies, ethnic tensions, marginalisation of Muslims, and authoritarian rule.',
       current: 'Since April 2023, Sudan has been plunged into a brutal civil war between the Sudanese Armed Forces (SAF) and the Rapid Support Forces (RSF). Over 20k civilians have been killed, thousands more raped or tortured, and over 10 million displaced - the largest displacement crisis in the world today. Entire cities like El Geneina have been ethnically cleansed, especially targeting the Masalit people in West Darfur. Over 25 million people need humanitarian aid. Communication and internet blackouts hide atrocities. Aid is blocked or looted. The international community remains largely silent.',
       actions: [
         'Support: Emergency Relief by Sudanese American Physicians Association (SAPA)',
