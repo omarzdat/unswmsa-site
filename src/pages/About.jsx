@@ -1,222 +1,214 @@
-import React, { useState } from 'react';
-import { ChevronDown, ExternalLink, Heart, Users, Globe, Flag } from 'lucide-react';
+import React from 'react';
+import MobileFooter from '../components/MobileFooter';
 
-const SocialJusticePanel = () => {
-  const [activeSection, setActiveSection] = useState(null);
-  const [hoveredCard, setHoveredCard] = useState(null);
+// Import profile images
+import aboutHeroImage from '/assets/about-hero.webp';
+import topStackImage from '/assets/vision-stack/top.webp';
+import midStackImage from '/assets/vision-stack/mid.webp';
+import bottomStackImage from '/assets/vision-stack/bottom.webp';
 
-  const regions = [
+// Import sponsor logos
+import humanAppealLogo from '/assets/sponsors/humanappeal.webp';
+import icfalLogo from '/assets/sponsors/icfal.webp';
+import headstartLogo from '/assets/sponsors/headstart.webp';
+
+const TeamMember = ({ name, title, image }) => (
+  <div className="flex flex-col items-center text-center">
+    <div className="w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden mb-3 bg-white/10">
+      <img
+        src={image || "/api/placeholder/160/160"}
+        alt={name}
+        className="w-full h-full object-cover"
+      />
+    </div>
+    <h3 className="text-base md:text-lg font-light text-white mb-0.5">{name}</h3>
+    <p className="text-xs md:text-sm text-white/80">{title}</p>
+  </div>
+);
+
+const SponsorCard = ({ name, logo, description, url }) => (
+  <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 md:p-8 text-center hover:bg-white/20 hover:scale-105 transition-all duration-300 cursor-pointer group"
+       onClick={() => url && window.open(url, '_blank')}>
+    <div className="w-28 h-28 md:w-32 md:h-32 mx-auto mb-4 md:mb-6 bg-white rounded-lg p-4 flex items-center justify-center group-hover:shadow-lg transition-shadow duration-300">
+      <img
+        src={logo}
+        alt={`${name} logo`}
+        className="w-full h-full object-contain"
+      />
+    </div>
+    <h3 className="text-lg md:text-xl font-medium text-white mb-3 md:mb-4 group-hover:text-white/90">{name}</h3>
+    <p className="text-sm md:text-base text-white/80 leading-relaxed group-hover:text-white/70">{description}</p>
+  </div>
+);
+
+const About = () => {
+  const teamMembers = [
+    { name: "Umar Khan", title: "President", image: "/assets/profiles/umar.webp" },
+    { name: "Afra Kamal", title: "Vice President", image: "/assets/profiles/afra.webp" },
+    { name: "Eeman R Shah", title: "Secretary", image: "/assets/profiles/eeman.webp" },
+    { name: "Ayman Chowdhury", title: "Treasurer", image: "/assets/profiles/ayman.webp" },
+    { name: "Zakariya Ali Yoga", title: "Arc Delegate", image: "/assets/profiles/zak.webp" },
+    { name: "Ryan Khan", title: "Media and Content Lead", image: "/assets/profiles/ryan.webp" },
+    { name: "Nuzhat Anjum", title: "Media and Content Lead", image: "/assets/profiles/nuzhat.webp" },
+    { name: "Ayishah Ahmad", title: "Media and Content Lead", image: "/assets/profiles/ayishah.webp" },
+    { name: "AbdulRahman Tijani", title: "Brothers Dawah Lead", image: "/assets/profiles/tijani.webp" },
+    { name: "Hawra Al Shami", title: "Sisters Dawah Lead", image: "/assets/profiles/hawra.webp" },
+    { name: "Souad Khan", title: "Activism Lead (Accountability)", image: "/assets/profiles/souad.webp" },
+    { name: "Rama Emad", title: "Activism Lead (Education)", image: "/assets/profiles/rama.webp" },
+    { name: "Zaynab Alam", title: "Sisters Events Lead", image: "/assets/profiles/zaynab.webp" },
+    { name: "Saarang Ali", title: "Brothers Events Lead", image: "/assets/profiles/saarang.webp" },
+  ];
+
+  const sponsors = [
     {
-      id: 'palestine',
-      title: 'Palestine',
-      image: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&q=80',
-      brief: 'Palestine was colonised under British rule and partitioned in 1948, leading to the Nakba - the mass expulsion of over 750,000 Palestinians.',
-      current: 'Since October 2023, Israel\'s actions in Gaza have resulted in approximately 50,000 deaths. The ICJ has warned of plausible genocide yet insufficient international action has been taken.',
-      actions: [
-        'Support the BDS Movement - Boycott companies like McDonald\'s, Starbucks, Coca Cola',
-        'Join campus campaigns for divestment and boycott of Israeli goods/companies',
-        'Educate your colleagues and classmates about the ongoing situation'
-      ],
-      verse: '"And do not incline toward those who do wrong, lest you be touched by the Fire..." — Surah Hud 11:113'
+      name: "Human Appeal",
+      logo: humanAppealLogo,
+      description: "An international humanitarian charity dedicated to providing emergency relief and sustainable development programs to communities in need around the world.",
+      url: "https://www.humanappeal.org.au/"
     },
     {
-      id: 'kashmir',
-      title: 'Kashmir',
-      image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80',
-      brief: 'Kashmir has been disputed since the 1947 partition of India and Pakistan. Its Muslim-majority population has long called for self-determination.',
-      current: 'In 2019, India revoked Article 370, removing Kashmir\'s semi-autonomy. This was followed by lockdowns, internet blackouts, mass arrests, and silencing of protests.',
-      actions: [
-        'Support the Stand With Kashmir Initiative',
-        'Challenge media silence and hold politicians accountable',
-        'Raise awareness in classrooms and public forums despite potential backlash'
-      ],
-      verse: '"Whoever relieves a hardship from a believer, Allah will relieve one of his hardships on the Day of Judgment..." — Prophet Muhammad ﷺ (Sahih Muslim)'
+      name: "ICFAL",
+      logo: icfalLogo,
+      description: "Islamic Co-Operative Finance Australia Limited, providing Sharia-compliant financial solutions and services to the Australian Muslim community.",
+      url: "https://www.icfal.com.au/" 
     },
     {
-      id: 'rohingya',
-      title: 'Rohingya Muslims',
-      image: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&q=80',
-      brief: 'The Rohingya are an ethnic Muslim minority in Myanmar\'s Rakhine State, denied citizenship since 1982 and subjected to persecution and statelessness.',
-      current: 'Since 2017\'s military crackdown, over 1 million Rohingya live in overcrowded refugee camps in Bangladesh. Recent political changes offer hope but challenges persist.',
-      actions: [
-        'Support Human Rights Watch Rohingya Projects',
-        'Host screenings, fundraisers, and awareness talks',
-        'Advocate for Australia to support ICJ genocide cases and hold Myanmar/Bangladesh accountable'
-      ],
-      verse: '"Whoever saves a life, it is as if he had saved mankind entirely." — Surah Al-Ma\'idah 5:32'
-    },
-    {
-      id: 'uyghur',
-      title: 'Uyghur Muslims',
-      image: 'https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=800&q=80',
-      brief: 'Uyghur Muslims are a Turkic ethnic group in China\'s Xinjiang region. Since 2014, China has escalated campaigns of forced assimilation under counter-terrorism pretexts.',
-      current: 'Over 1 million Uyghurs detained in "re-education" camps. Reports include torture, forced labor, sexual abuse, mass surveillance, and systematic erasure of Islamic culture.',
-      actions: [
-        'Support Campaign for Uyghurs and Uyghur Human Rights Project',
-        'Petition Australia to ban goods linked to Uyghur forced labor',
-        'Advocate for universities to address Chinese persecution without fear of influence'
-      ],
-      verse: '"Indeed, those who persecute the believing men and believing women... will have the punishment of Hell..." — Surah Al-Buruj 85:10'
-    },
-    {
-      id: 'sudan',
-      title: 'Sudan',
-      image: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&q=80',
-      brief: 'Sudan has experienced decades of conflict rooted in colonial legacies and authoritarian rule. The 2019 revolution brought hope for democracy.',
-      current: 'Since April 2023, brutal civil war between SAF and RSF has killed over 20,000 civilians, displaced 10+ million people - the world\'s largest displacement crisis.',
-      actions: [
-        'Support Emergency Relief by Sudanese American Physicians Association (SAPA)',
-        'Follow @EyesOnSudan for updates and advocacy opportunities',
-        'Email your local MP urging Australia to push for humanitarian ceasefire'
-      ],
-      verse: '"The example of the believers in their mutual love, mercy, and compassion is that of a body: when any limb aches, the whole body reacts..." — Prophet Muhammad ﷺ'
+      name: "Headstart Legal",
+      logo: headstartLogo,
+      description: "Australia’s first law firm established expressly with the vision of powering the growth and achievement of Australia’s burgeoning Muslim community.",
+      url: "https://headstartlegal.com.au/"
     }
   ];
 
-  const AccordionItem = ({ title, children, isActive, onClick }) => (
-    <div className="border border-white/20 rounded-lg overflow-hidden backdrop-blur-sm bg-white/5">
-      <button
-        onClick={onClick}
-        className="w-full px-4 py-3 text-left flex items-center justify-between text-white hover:bg-white/10 transition-colors"
-      >
-        <span className="font-medium">{title}</span>
-        <ChevronDown className={`w-5 h-5 transition-transform ${isActive ? 'rotate-180' : ''}`} />
-      </button>
-      {isActive && (
-        <div className="px-4 pb-4 text-white/90 text-sm leading-relaxed">
-          {children}
-        </div>
-      )}
-    </div>
-  );
-
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#961a1e] to-[#ad3724] overflow-x-hidden">
-
-
-      <div className="relative z-10 max-w-6xl mx-auto px-4 pt-24 pb-8">
-        {/* Header */}
-        <div className="text-center mb-12">
-          <h1 className="text-4xl md:text-6xl text-white font-bold mb-6">
-            Social Justice Panel
-          </h1>
-          <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 mb-8">
-            <p className="text-white/90 text-lg italic mb-2">
-              "Indeed, Allah commands justice and good conduct..."
-            </p>
-            <p className="text-white/80 text-sm">— Surah An-Nahl 16:90</p>
-          </div>
-          <p className="text-white text-lg max-w-4xl mx-auto leading-relaxed">
-            This panel brings to light major injustices currently faced by Muslim communities across the globe, 
-            facing systematic oppression, displacement, and violence. Our first act is by the hand, and if not then by the tongue, 
-            and if not then by the heart – we must never stay silent in the face of injustice.
-          </p>
+    <div className="h-screen md:snap-y md:snap-mandatory overflow-y-auto">
+      {/* Who is UNSWMSA Section */}
+      <section className="min-h-screen md:h-screen md:snap-start relative flex items-center md:block pt-20 pb-16 md:py-0">
+        <div className="absolute inset-0">
+          <img
+            src={aboutHeroImage}
+            alt="Background"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-[#961a1e] opacity-80"></div>
         </div>
 
-        {/* Interactive Region Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-          {regions.map((region, index) => (
-            <div
-              key={region.id}
-              className={`relative overflow-hidden rounded-2xl cursor-pointer transform transition-all duration-300 h-64 ${
-                hoveredCard === region.id ? 'scale-105 shadow-2xl' : 'shadow-lg hover:shadow-xl'
-              }`}
-              onMouseEnter={() => setHoveredCard(region.id)}
-              onMouseLeave={() => setHoveredCard(null)}
-              onClick={() => setActiveSection(activeSection === region.id ? null : region.id)}
-            >
-              {/* Background Image */}
-              <div 
-                className="absolute inset-0 bg-cover bg-center"
-                style={{ backgroundImage: `url(${region.image})` }}
-              ></div>
-              {/* Dark overlay */}
-              <div className="absolute inset-0 bg-black/60"></div>
-              
-              <div className="relative z-10 p-6 h-full flex flex-col justify-end">
-                <h3 className="text-xl font-bold text-white mb-2">{region.title}</h3>
-                <p className="text-white/90 text-sm mb-4 line-clamp-3">
-                  {region.brief}
-                </p>
-                <div className="flex items-center text-white/80 text-xs">
-                  <span>Click to learn more</span>
-                  <ChevronDown className={`w-4 h-4 ml-2 transition-transform ${
-                    activeSection === region.id ? 'rotate-180' : ''
-                  }`} />
+        <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-8 h-full md:flex md:items-center">
+          <div className="max-w-4xl">
+            <h1 className="text-4xl md:text-7xl text-white mb-8 md:mb-12">
+              Who are UNSWMSA?
+            </h1>
+            <p className="text-lg md:text-2xl text-white/90 leading-relaxed">
+              The UNSW Muslim Students' Association (UNSWMSA) is a vibrant community 
+              of Muslim students dedicated to fostering spiritual growth, academic excellence, 
+              and social connection. Founded on the principles of unity and support, we serve 
+              as a bridge between Muslim students and the broader university community.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Vision Section */}
+      <section className="min-h-screen md:h-screen md:snap-start relative py-16 md:py-0 bg-gradient-to-b from-[#961a1e] to-[#ad3724]">
+        <div className="max-w-7xl mx-auto px-4 md:px-8 h-full flex items-center">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24 items-center">
+            <div>
+              <h2 className="text-3xl md:text-5xl text-white mb-6 md:mb-8">Our Vision</h2>
+              <p className="text-lg md:text-xl text-white/90 leading-relaxed mb-6">
+                We envision a university environment where Muslim students can thrive 
+                academically, spiritually, and socially. Our mission is to create an 
+                inclusive space that celebrates our faith while building bridges with 
+                the broader community.
+              </p>
+              <p className="text-lg md:text-xl text-white/90 leading-relaxed">
+                Through education, community service, and social activities, we aim to 
+                nurture future leaders who embody Islamic values while excelling in 
+                their chosen fields.
+              </p>
+            </div>
+
+            {/* Stacked Photos */}
+            <div className="w-full flex justify-center">
+              <div className="relative h-[400px] md:h-[500px] w-full max-w-[320px] md:max-w-none">
+                {/* Background blur */}
+                <div className="w-64 h-64 md:w-96 md:h-96 bg-white/10 rounded-full absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 blur-3xl"></div>
+
+                {/* Bottom photo */}
+                <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-48 md:w-80 h-64 md:h-96">
+                  <img
+                    src={bottomStackImage}
+                    alt="Vision illustration 3"
+                    className="w-full h-full object-cover rounded-lg shadow-xl"
+                  />
+                </div>
+
+                {/* Middle photo */}
+                <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2 translate-x-4 md:translate-x-12 w-48 md:w-80 h-64 md:h-96 rotate-6">
+                  <img
+                    src={midStackImage}
+                    alt="Vision illustration 2"
+                    className="w-full h-full object-cover rounded-lg shadow-xl"
+                  />
+                </div>
+
+                {/* Top photo */}
+                <div className="absolute bottom-24 left-1/2 transform -translate-x-1/2 -translate-x-4 md:-translate-x-12 w-48 md:w-80 h-64 md:h-96 -rotate-6">
+                  <img
+                    src={topStackImage}
+                    alt="Vision illustration 1"
+                    className="w-full h-full object-cover rounded-lg shadow-xl"
+                  />
                 </div>
               </div>
             </div>
-          ))}
-        </div>
-
-        {/* Detailed Section */}
-        {activeSection && (
-          <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 md:p-8 mb-8 border border-white/20 max-w-4xl mx-auto">
-            {(() => {
-              const activeRegion = regions.find(r => r.id === activeSection);
-              return (
-                <div className="space-y-6">
-                  <div className="text-center mb-8">
-                    <h2 className="text-3xl font-bold text-white">{activeRegion.title}</h2>
-                  </div>
-
-                  <div className="space-y-8 max-w-3xl mx-auto px-8 md:px-16">
-                    <div>
-                      <h3 className="text-xl font-semibold text-white mb-4">Brief History</h3>
-                      <p className="text-white/90 leading-relaxed">
-                        {activeRegion.brief}
-                      </p>
-                    </div>
-                    
-                    <div>
-                      <h3 className="text-xl font-semibold text-white mb-4">Current Situation</h3>
-                      <p className="text-white/90 leading-relaxed">
-                        {activeRegion.current}
-                      </p>
-                    </div>
-
-                    <div>
-                      <h3 className="text-xl font-semibold text-white mb-4">Actionable Steps</h3>
-                      <ul className="space-y-3 mb-6">
-                        {activeRegion.actions.map((action, idx) => (
-                          <li key={idx} className="flex items-start">
-                            <div className="w-2 h-2 bg-white rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                            <span className="text-white/90">{action}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-
-                    <div className="bg-white/5 rounded-lg p-4 border-l-4 border-white/50">
-                      <p className="text-white/90 italic text-sm leading-relaxed">
-                        {activeRegion.verse}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              );
-            })()}
           </div>
-        )}
+        </div>
+      </section>
 
-        {/* Quote Section */}
-        <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 md:p-8 mb-8 border border-white/20">
-          <div className="text-center">
-            <p className="text-white/90 text-lg italic mb-2">
-              "And what is [the matter] with you that you fight not in the cause of Allah and [for] the oppressed...?"
+      {/* Team Section */}
+      <section className="min-h-screen md:h-screen md:snap-start py-16 md:py-0 bg-[#ad3724]">
+        <div className="max-w-7xl mx-auto px-4 md:px-8 h-full flex flex-col justify-center">
+          <h2 className="text-3xl md:text-5xl text-white mb-8 md:mb-12">Meet Our Team</h2>
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-x-4 gap-y-8 md:gap-x-24 md:gap-y-10 max-w-7xl mx-auto">
+            {teamMembers.map((member, index) => (
+              <TeamMember
+                key={index}
+                name={member.name}
+                title={member.title}
+                image={member.image} 
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Sponsors Section */}
+      <section className="min-h-screen md:h-screen md:snap-start py-16 md:py-0 bg-gradient-to-b from-[#ad3724] to-[#8b2f19]">
+        <div className="max-w-7xl mx-auto px-4 md:px-8 h-full flex flex-col justify-center">
+          <div className="text-center mb-12 md:mb-16">
+            <h2 className="text-3xl md:text-5xl text-white mb-4 md:mb-6">Our Sponsors</h2>
+            <p className="text-lg md:text-xl text-white/80 max-w-3xl mx-auto">
+              We're grateful to our generous sponsors who support our mission and help us serve the UNSW Muslim community.
             </p>
-            <p className="text-white/80 text-sm">— Surah An-Nisa 4:75</p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 max-w-6xl mx-auto">
+            {sponsors.map((sponsor, index) => (
+              <SponsorCard
+                key={index}
+                name={sponsor.name}
+                logo={sponsor.logo}
+                description={sponsor.description}
+                url={sponsor.url}
+              />
+            ))}
           </div>
         </div>
+      </section>
 
-        {/* Footer */}
-        <div className="text-center mt-12 pt-8 border-t border-white/20">
-          <p className="text-white/80 mb-2">UNSW Muslim Students Association</p>
-          <p className="text-white/60 text-sm">Standing for justice, unity, and community</p>
-        </div>
-      </div>
+      <MobileFooter />
     </div>
   );
 };
 
-export default SocialJusticePanel;
+export default About;
