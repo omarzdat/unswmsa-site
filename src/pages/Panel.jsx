@@ -29,6 +29,11 @@ const VoicesOfTheUmmahPanel = () => {
           name: 'Rohingya Maìyafuìnor Collaborative Network',
           website: 'https://women4rohingya.org/about-us/',
           instagram: 'https://www.instagram.com/rohingyawomencollaborative/?hl=en'
+        },
+        {
+          name: 'Noor Azizah',
+          website: 'https://www.noorazizah.com',
+          instagram: 'https://www.instagram.com/noor.azizah.rohingya/?hl=en'
         }
       ]
     },
