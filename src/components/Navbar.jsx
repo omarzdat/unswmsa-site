@@ -101,6 +101,9 @@ const Navbar = () => {
             <Link to="/publications" className={`${hoverColorClass} transition-colors`}>
               Publications
             </Link>
+            <Link to="/sjp" className={`${hoverColorClass} transition-colors`}>
+              Voices of the Ummah
+            </Link>
             
             {/* Resources Dropdown */}
             <div className="relative" ref={resourcesRef}>
