@@ -205,6 +205,12 @@ const Navbar = () => {
             >
               Publications
             </Link>
+            <Link 
+              to="/sjp" 
+              className="text-white text-2xl hover:text-gray-300 transition-colors"
+            >
+              Voices of the Ummah
+            </Link>
             
             {/* Mobile Resources Dropdown */}
             <div>
